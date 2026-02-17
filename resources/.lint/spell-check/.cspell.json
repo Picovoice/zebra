@@ -1,0 +1,47 @@
+{
+  "language": "en",
+  "dictionaries": [
+    "dict"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "dict",
+      "path": "./dict.txt",
+      "addWords": true
+    }
+  ],
+  "ignorePaths": [
+    // binaries
+    "**/*.a",
+    "**/*.dll",
+    "**/*.dylib",
+    "**/*.jar",
+    "**/*.mp3",
+    "**/*.node",
+    "**/*.pv",
+    "**/*.so",
+    "**/*.wasm",
+    "**/wasm/**",
+    "**/dist/**",
+    "**/lib/ios/**/*",
+    "**/*.wav",
+
+    // ios
+    "**/*.xcconfig",
+    "**/*.podspec",
+    "**/Podfile",
+    "**/*.plist",
+    "**/contents.xcworkspacedata",
+    "**/*.storyboard",
+    "**/*.pbxproj",
+    "**/*.xcscheme",
+    "**/*.m",
+
+    // android
+    "**/AndroidManifest.xml",
+    "**/orca_demo.xml",
+
+    // wasm
+    "**/lib/wasm/**/*.js"
+  ]
+}

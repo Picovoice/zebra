@@ -1,0 +1,7 @@
+.DS_Store
+.idea
+demo/c/zebra_demo
+__pycache__
+.build
+Package.resolved
+.swiftpm
