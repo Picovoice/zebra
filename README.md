@@ -39,6 +39,23 @@ Zebra is a lightweight, on-device neural machine translation engine.
 
 ### C Demos
 
+Build the demo:
+
+```console
+cmake -S demo/c/ -B demo/c/build && cmake --build demo/c/build
+```
+
+Run the demo:
+
+```console
+./demo/c/build/zebra_demo -a ${ACCESS_KEY} -l ${LIBRARY_PATH} -m ${MODEL_PATH} -t ${TEXT}
+```
+
+Replace `${LIBRARY_PATH}` with path to appropriate library available under [lib](../../lib),
+`${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/),
+`${MODEL_PATH}` with a supported translation model located [here](../../lib/common/) and
+`${TEXT}` with the text to translate.
+
 ### Android Demos
 
 ### iOS Demos

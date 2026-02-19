@@ -86,7 +86,7 @@ static void print_dl_error(const char *message) {
 static void print_usage(const char *program_name) {
     fprintf(
             stdout,
-            "Usage: %s  -l LIBRARY_PATH [-a ACCESS_KEY -m MODEL_PATH -p PROMPT -y DEVICE] ...\n"
+            "Usage: %s  -l LIBRARY_PATH [-a ACCESS_KEY -m MODEL_PATH -t TEXT -y DEVICE] ...\n"
             "        %s [-z] -l LIBRARY_PATH\n",
             program_name,
             program_name);
@@ -98,7 +98,7 @@ static void print_error_message(char **message_stack, int32_t message_stack_dept
     }
 }
 
-static void print_inference_devices(const char *library_path) {
+static void print_translation_devices(const char *library_path) {
     void *dl_handle = open_dl(library_path);
     if (!dl_handle) {
         fprintf(stderr, "Failed to open library at '%s'.\n", library_path);
@@ -180,11 +180,11 @@ int picovoice_main(int argc, char **argv) {
     const char *model_path = NULL;
     const char *library_path = NULL;
     const char *device = NULL;
-    const char *prompt = NULL;
-    bool show_inference_devices = false;
+    const char *text = NULL;
+    bool show_translation_devices = false;
 
     int opt;
-    while ((opt = getopt(argc, argv, "za:m:l:p:y:")) != -1) {
+    while ((opt = getopt(argc, argv, "za:m:l:t:y:")) != -1) {
         switch (opt) {
             case 'a':
                 access_key = optarg;
@@ -195,32 +195,32 @@ int picovoice_main(int argc, char **argv) {
             case 'l':
                 library_path = optarg;
                 break;
-            case 'p':
-                prompt = optarg;
+            case 't':
+                text = optarg;
                 break;
             case 'y':
                 device = optarg;
                 break;
             case 'z':
-                show_inference_devices = true;
+                show_translation_devices = true;
                 break;
             default:
                 break;
         }
     }
 
-    if (show_inference_devices) {
+    if (show_translation_devices) {
         if (!library_path) {
-            fprintf(stderr, "`library_path` is required to view available inference devices.\n");
+            fprintf(stderr, "`library_path` is required to view available translation devices.\n");
             print_usage(argv[0]);
             exit(EXIT_FAILURE);
         }
 
-        print_inference_devices(library_path);
+        print_translation_devices(library_path);
         return EXIT_SUCCESS;
     }
 
-    if (!(access_key && library_path && model_path && prompt)) {
+    if (!(access_key && library_path && model_path && text)) {
         print_usage(argv[0]);
         exit(1);
     }
@@ -352,7 +352,7 @@ int picovoice_main(int argc, char **argv) {
     gettimeofday(&before, NULL);
 
     char *translation = NULL;
-    status = pv_zebra_translate_func(zebra, prompt, &translation);
+    status = pv_zebra_translate_func(zebra, text, &translation);
     if (status != PV_STATUS_SUCCESS) {
         fprintf(stderr, "'pv_zebra_translate' failed with '%s'", pv_status_to_string_func(status));
         error_status = pv_get_error_stack_func(&message_stack, &message_stack_depth);

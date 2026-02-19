@@ -33,7 +33,7 @@ typedef struct pv_zebra pv_zebra_t;
  *
  * @param access_key AccessKey obtained from Picovoice Console (https://console.picovoice.ai/)
  * @param model_path Absolute path to the file containing model parameters.
- * @param device String representation of the device (e.g., CPU or GPU) to use for inference. If set to `best`, the most
+ * @param device String representation of the device (e.g., CPU or GPU) to use for translation. If set to `best`, the most
  * suitable device is selected automatically. If set to `gpu`, the engine uses the first available GPU device.
  * To select a specific GPU device, set this argument to `gpu:${GPU_INDEX}`, where `${GPU_INDEX}` is the index of the
  * target GPU. If set to `cpu`, the engine will run on the CPU with the default number of threads. To specify the

@@ -40,8 +40,12 @@ cmake --build demo/c/build
 Running the demo without arguments prints the usage:
 
 ```console
-usage: -a ACCESS_KEY -l LIBRARY_PATH -m MODEL_PATH -p PROMPT
+usage: ./demo/c/build/zebra_demo -a ACCESS_KEY -l LIBRARY_PATH -m MODEL_PATH -t TEXT
 ```
 
-Run the command corresponding to your platform from the root of the repository. Replace `${ACCESS_KEY}` with yours
-obtained from [Picovoice Console](https://console.picovoice.ai/) and `${PROMPT}` with the prompt to translate.
+Run the command corresponding to your platform from the root of the repository.
+
+Replace `${LIBRARY_PATH}` with path to appropriate library available under [lib](../../lib),
+`${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/),
+`${MODEL_PATH}` with a supported translation model located [here](../../lib/common/) and
+`${TEXT}` with the text to translate.
