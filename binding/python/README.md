@@ -38,7 +38,7 @@ import pvzebra
 handle = pvzebra.create(access_key='${ACCESS_KEY}', model_path='${MODEL_PATH}')
 
 translation = handle.translate('${TEXT}')
-print(translattion)
+print(translation)
 ```
 
 Replace `${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/), `${MODEL_PATH}` with

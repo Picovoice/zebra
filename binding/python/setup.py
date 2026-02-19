@@ -60,5 +60,5 @@ setuptools.setup(
         "Topic :: Text Processing :: Linguistic",
     ],
     python_requires=">=3.9",
-    keywords="Translation, Text Tranlsation, Language Translation",
+    keywords="Translation, Text Translation, Language Translation",
 )
