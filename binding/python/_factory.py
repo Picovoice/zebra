@@ -57,10 +57,10 @@ def create(
 
 def available_devices(library_path: Optional[str] = None) -> Sequence[str]:
     """
-    Lists all available devices that Zebra can use for inference. Each entry in the list can be the `device` argument
+    Lists all available devices that Zebra can use for translation. Each entry in the list can be the `device` argument
     of `.create` factory method or `Zebra` constructor.
     :param library_path: Absolute path to Zebra's dynamic library. If not set it will be set to the default location.
-    :return: List of all available devices that Zebra can use for inference.
+    :return: List of all available devices that Zebra can use for translation.
     """
 
     if library_path is None:
