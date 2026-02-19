@@ -214,7 +214,7 @@ class Zebra(object):
             raise ZebraInvalidArgumentError()
 
         if len(text) > self.max_character_limit:
-            raise ZebraInvalidArgumentError("Maximum character limit of exceeded.")
+            raise ZebraInvalidArgumentError("Maximum character limit exceeded.")
 
         c_translation = c_char_p()
         status = self._translate_func(self._handle, text.encode(), byref(c_translation))
