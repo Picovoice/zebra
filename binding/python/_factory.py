@@ -19,10 +19,7 @@ from ._zebra import (
     list_hardware_devices,
 )
 
-from ._util import (
-    default_library_path,
-    default_model_path
-)
+from ._util import default_library_path
 
 
 def create(
