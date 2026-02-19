@@ -1,0 +1,13 @@
+{
+  "tests": {
+    "translation_tests": [
+      {
+        "source": "en",
+        "text": "I've seen things you people would not believe.",
+        "translations": {
+          "fr": "J'ai vu des choses que vous ne croiriez pas."
+        }
+      }
+    ]
+  }
+}
