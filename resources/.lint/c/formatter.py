@@ -7,7 +7,6 @@ from argparse import ArgumentParser
 import sys
 
 IGNORE_LIST = {
-    'demo/c/dr_libs',
     'lib'
 }
 

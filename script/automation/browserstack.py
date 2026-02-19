@@ -17,6 +17,7 @@ devices_dict = {
         'Google Pixel 6 Pro-15.0'
     ],
     'ios-min-max': [
+        'iPhone SE 2022-15',
         'iPhone 14 Plus-16',
         'iPhone 14-18'
     ],
@@ -24,6 +25,7 @@ devices_dict = {
         'iPhone 13-18',
     ]
 }
+
 
 def main(args: argparse.Namespace) -> None:
     app_files = {
@@ -62,7 +64,8 @@ def main(args: argparse.Namespace) -> None:
         'app': app_response_json['app_url'],
         'testSuite': test_response_json['test_suite_url'],
         'project': args.project_name,
-        'devices': devices_dict[args.devices]
+        'devices': devices_dict[args.devices],
+        'deviceLogs': True
     }
 
     while True:
@@ -74,8 +77,8 @@ def main(args: argparse.Namespace) -> None:
         )
         if (build_response is not None and 'message' in build_response.json() and '[BROWSERSTACK_ALL_PARALLELS_IN_USE]'
                 in build_response.json()['message']):
-                print('Parallel threads limit reached. Waiting...', flush=True)
-                time.sleep(60)
+            print('Parallel threads limit reached. Waiting...', flush=True)
+            time.sleep(60)
         else:
             break
 
@@ -93,7 +96,9 @@ def main(args: argparse.Namespace) -> None:
         print('Build Unsuccessful')
         exit(1)
 
-    print('View build results at https://app-automate.browserstack.com/dashboard/v2/builds/{}'.format(build_response_json['build_id']))
+    print(
+        'View build results at https://app-automate.browserstack.com/dashboard/v2/builds/{}'
+        .format(build_response_json['build_id']))
 
     while True:
         time.sleep(60)
@@ -114,6 +119,7 @@ def main(args: argparse.Namespace) -> None:
     print('Status:', status)
     if status != 'passed':
         exit(1)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
