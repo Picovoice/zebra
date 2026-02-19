@@ -25,7 +25,6 @@ body:
         - Android
         - C
         - iOS
-        - Node.js
         - Python
         - Web
     validations:
