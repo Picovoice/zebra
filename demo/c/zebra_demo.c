@@ -98,7 +98,7 @@ static void print_error_message(char **message_stack, int32_t message_stack_dept
     }
 }
 
-static void print_translation_devices(const char *library_path) {
+static void print_inference_devices(const char *library_path) {
     void *dl_handle = open_dl(library_path);
     if (!dl_handle) {
         fprintf(stderr, "Failed to open library at '%s'.\n", library_path);
@@ -181,7 +181,7 @@ int picovoice_main(int argc, char **argv) {
     const char *library_path = NULL;
     const char *device = NULL;
     const char *text = NULL;
-    bool show_translation_devices = false;
+    bool show_inference_devices = false;
 
     int opt;
     while ((opt = getopt(argc, argv, "za:m:l:t:y:")) != -1) {
@@ -202,21 +202,21 @@ int picovoice_main(int argc, char **argv) {
                 device = optarg;
                 break;
             case 'z':
-                show_translation_devices = true;
+                show_inference_devices = true;
                 break;
             default:
                 break;
         }
     }
 
-    if (show_translation_devices) {
+    if (show_inference_devices) {
         if (!library_path) {
-            fprintf(stderr, "`library_path` is required to view available translation devices.\n");
+            fprintf(stderr, "`library_path` is required to view available inference devices.\n");
             print_usage(argv[0]);
             exit(EXIT_FAILURE);
         }
 
-        print_translation_devices(library_path);
+        print_inference_devices(library_path);
         return EXIT_SUCCESS;
     }
 
