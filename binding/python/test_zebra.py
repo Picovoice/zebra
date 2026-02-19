@@ -16,8 +16,8 @@ from typing import *
 
 from parameterized import parameterized
 
-from _zebra import *
 from _util import *
+from _zebra import *
 from test_util import *
 
 translation_tests = load_test_data()
@@ -71,6 +71,18 @@ class ZebraTestCase(unittest.TestCase):
         )
         self.assertIsInstance(o.version, str)
         self.assertGreater(len(o.version), 0)
+        o.delete()
+
+    def test_empty_text(self):
+        o = Zebra(
+            access_key=self._access_key,
+            model_path=get_model_path_by_language("../..", "en", "fr"),
+            device=self._device,
+            library_path=default_library_path("../../"),
+        )
+        with self.assertRaises(ZebraInvalidArgumentError):
+            o.translate("")
+
         o.delete()
 
     def test_max_character_limit(self):

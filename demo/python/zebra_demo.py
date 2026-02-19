@@ -28,18 +28,18 @@ def main():
         help='Absolute path to dynamic library. Default: using the library provided by `pvzebra`')
     parser.add_argument(
         '--device',
-        help='Device to run translation on (`best`, `cpu:{num_threads}` or `gpu:{gpu_index}`). '
+        help='Device to run inference on (`best`, `cpu:{num_threads}` or `gpu:{gpu_index}`). '
              'Default: automatically selects best device for `pvzebra`')
     parser.add_argument(
         '--text',
         help='Text to translate')
     parser.add_argument(
-        '--show_translation_devices',
+        '--show_inference_devices',
         action='store_true',
-        help='Show the list of available devices for Zebra translation and exit')
+        help='Show the list of available devices for Zebra inference and exit')
     args = parser.parse_args()
 
-    if args.show_translation_devices:
+    if args.show_inference_devices:
         print('\n'.join(available_devices(library_path=args.library_path)))
         return
 

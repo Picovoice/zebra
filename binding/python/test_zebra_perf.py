@@ -15,8 +15,8 @@ import sys
 import unittest
 from time import perf_counter
 
-from _zebra import Zebra
 from _util import default_library_path
+from _zebra import Zebra
 from test_util import get_model_path_by_language
 
 

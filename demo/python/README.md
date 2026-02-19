@@ -1,12 +1,12 @@
-# Zebra Speaker Diarization Demos
+# Zebra Text Translation Demos
 
 Made in Vancouver, Canada by [Picovoice](https://picovoice.ai)
 
 ## Zebra
 
-Zebra is an on-device speaker diarization engine. Zebra is:
+Zebra is an on-device text translation engine. Zebra is:
 
-- Private; All voice processing runs locally.
+- Private; Text translation runs locally.
 - Cross-Platform:
   - Linux (x86_64), macOS (x86_64, arm64), Windows (x86_64, arm64)
   - Raspberry Pi (3, 4, 5)
@@ -38,3 +38,13 @@ zebra_demo --access_key ${ACCESS_KEY} --model_path ${MODEL_PATH} --text ${TEXT}
 
 Replace `${ACCESS_KEY}` with yours obtained from Picovoice Console, `${MODEL_PATH}` with
 a supported translation model located [here](../../lib/common/) and`${TEXT}` with the text to translate.
+
+### Translation Models
+
+The Zebra model decides the source and target translation languages:
+
+```console
+pv_zebra_params_${SOURCE}_${TARGET}.pv
+```
+
+Replace `${SOURCE}` with the source language and `${TARGET}` with the target language for the translation.

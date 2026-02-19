@@ -115,7 +115,8 @@ class Zebra(object):
         Constructor.
 
         :param access_key: AccessKey obtained from Picovoice Console (https://console.picovoice.ai/)
-        :param model_path: Absolute path to the file containing model parameters.
+        :param model_path: Absolute path to the file containing model parameters (`.pv`).
+        Sets the source and target translation languages.
         :param device: String representation of the device (e.g., CPU or GPU) to use. If set to `best`, the most
         suitable device is selected automatically. If set to `gpu`, the engine uses the first available GPU device.
         To select a specific GPU device, set this argument to `gpu:${GPU_INDEX}`, where `${GPU_INDEX}` is the index
@@ -162,7 +163,11 @@ class Zebra(object):
 
         self._handle = POINTER(self.CZebra)()
 
-        status = init_func(access_key.encode(), model_path.encode(), device.encode(), byref(self._handle))
+        status = init_func(
+            access_key.encode(),
+            model_path.encode(),
+            device.encode(),
+            byref(self._handle))
         if status is not self.PicovoiceStatuses.SUCCESS:
             raise self._PICOVOICE_STATUS_TO_EXCEPTION[status](
                 message="Initialization failed", message_stack=self._get_error_stack()
@@ -211,7 +216,7 @@ class Zebra(object):
         """
 
         if len(text) == 0:
-            raise ZebraInvalidArgumentError()
+            raise ZebraInvalidArgumentError("Text cannot be empty.")
 
         if len(text) > self.max_character_limit:
             raise ZebraInvalidArgumentError("Maximum character limit exceeded.")
@@ -290,6 +295,7 @@ def list_hardware_devices(library_path: str) -> Sequence[str]:
 
 
 __all__ = [
+    'list_hardware_devices',
     "Zebra",
     "ZebraActivationError",
     "ZebraActivationLimitError",
@@ -302,6 +308,5 @@ __all__ = [
     "ZebraKeyError",
     "ZebraMemoryError",
     "ZebraRuntimeError",
-    "ZebraStopIterationError",
-    'list_hardware_devices',
+    "ZebraStopIterationError"
 ]

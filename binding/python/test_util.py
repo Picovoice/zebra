@@ -32,11 +32,11 @@ def load_test_data() -> List[Tuple[str, str, str, str]]:
     return translation_tests
 
 
-def get_model_path_by_language(relative, source, target):
+def get_model_path_by_language(relative: str, source: str, target: str) -> str:
     return os.path.join(os.path.dirname(__file__), relative, f'lib/common/zebra_params_{source}_{target}.pv')
 
 
 __all__ = [
-    'load_test_data',
     'get_model_path_by_language',
+    'load_test_data',
 ]

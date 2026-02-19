@@ -6,7 +6,7 @@ Made in Vancouver, Canada by [Picovoice](https://picovoice.ai)
 
 Zebra is an on-device text translation engine. Zebra is:
 
-- Private; All voice processing runs locally.
+- Private; Text translation runs locally.
 - Cross-Platform:
   - Linux (x86_64), macOS (x86_64, arm64), Windows (x86_64, arm64)
   - Raspberry Pi (3, 4, 5)
@@ -30,7 +30,7 @@ Signup or Login to [Picovoice Console](https://console.picovoice.ai/) to get you
 
 ### Usage
 
-Create an instance of the engine and perform text translation on text:
+Create an instance of the engine and translate some text:
 
 ```python
 import pvzebra
@@ -44,6 +44,18 @@ print(translation)
 Replace `${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/), `${MODEL_PATH}` with
 a supported translation model located [here](../../lib/common/) and`${TEXT}` with the text to translate.
 Finally, when done be sure to explicitly release the resources using `handle.delete()`.
+
+### Translation Models
+
+Zebra translation models are located [here](../../lib/common/). The selected model decides the source and target translation languages.
+
+The format of the model follows:
+
+```console
+pv_zebra_params_${SOURCE}_${TARGET}.pv
+```
+
+where `${SOURCE}` is the source language and `${TARGET}` is the target language for the translation.
 
 ## Demos
 

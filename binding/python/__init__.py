@@ -10,5 +10,5 @@
 #
 
 from ._factory import *
-from ._zebra import *
 from ._util import *
+from ._zebra import *

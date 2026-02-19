@@ -14,12 +14,12 @@ from typing import (
     Sequence
 )
 
-from ._zebra import (
-    Zebra,
-    list_hardware_devices,
-)
-
 from ._util import default_library_path
+
+from ._zebra import (
+    list_hardware_devices,
+    Zebra,
+)
 
 
 def create(
@@ -31,7 +31,8 @@ def create(
     Factory method for Zebra text translation engine.
 
     :param access_key: AccessKey obtained from Picovoice Console (https://console.picovoice.ai/)
-    :param model_path: Absolute path to the file containing model parameters.
+    :param model_path: Absolute path to the file containing model parameters (`.pv`).
+    Sets the source and target translation languages.
     :param device: String representation of the device (e.g., CPU or GPU) to use. If set to `best`, the most
     suitable device is selected automatically. If set to `gpu`, the engine uses the first available GPU device.
     To select a specific GPU device, set this argument to `gpu:${GPU_INDEX}`, where `${GPU_INDEX}` is the index
@@ -46,7 +47,7 @@ def create(
         device = "best"
 
     if library_path is None:
-        library_path = default_library_path("")
+        library_path = default_library_path()
 
     return Zebra(
         access_key=access_key,
@@ -70,6 +71,6 @@ def available_devices(library_path: Optional[str] = None) -> Sequence[str]:
 
 
 __all__ = [
-    "create",
-    "available_devices"
+    "available_devices",
+    "create"
 ]

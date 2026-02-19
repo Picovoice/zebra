@@ -89,3 +89,6 @@ jobs:
           --access_key ${{secrets.PV_VALID_ACCESS_KEY}}
           --device ${{ matrix.device }}
           --text "Hello my name is"
+
+      - name: Test get devices
+        run: python zebra_demo.py --show_inference_devices
