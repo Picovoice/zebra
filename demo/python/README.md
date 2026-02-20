@@ -41,7 +41,7 @@ a supported translation model located [here](../../lib/common/) and`${TEXT}` wit
 
 ### Translation Models
 
-The Zebra model decides the source and target translation languages:
+The Zebra model decides the source and target languages:
 
 ```console
 pv_zebra_params_${SOURCE}_${TARGET}.pv

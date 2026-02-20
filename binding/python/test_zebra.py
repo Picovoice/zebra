@@ -113,7 +113,6 @@ class ZebraTestCase(unittest.TestCase):
             )
 
             res = o.translate(text)
-            res = res.replace("<pad>", "").replace("</s>", "").strip()
             self.assertEqual(res, translation)
         finally:
             if o is not None:
