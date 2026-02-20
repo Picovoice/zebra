@@ -1,0 +1,7 @@
+node_modules
+dist
+src/lib/*
+cypress/fixtures/audio_samples/*
+test/params/zebra_params*.js
+test/params/zebra_params*.pv
+test/test_data.json
