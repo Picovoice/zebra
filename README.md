@@ -50,7 +50,7 @@ zebra_demo --access_key ${ACCESS_KEY} --model_path ${MODEL_PATH} --text ${TEXT}
 ```
 
 Replace `${ACCESS_KEY}` with yours obtained from Picovoice Console, `${MODEL_PATH}` with
-a supported translation model located [here](../../lib/common/) and`${TEXT}` with the text to translate.
+a supported translation model located [here](../../lib/common/) and `${TEXT}` with the text to translate.
 
 For more information about Python demos go to [demo/python](./demo/python).
 
@@ -83,7 +83,7 @@ print(zebra.translate('${TEXT}'))
 ```
 
 Replace `${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/), `${MODEL_PATH}` with
-a supported translation model located [here](../../lib/common/) and`${TEXT}` with the text to translate.
+a supported translation model located [here](../../lib/common/) and `${TEXT}` with the text to translate.
 
 Finally, when done be sure to explicitly release the resources:
 

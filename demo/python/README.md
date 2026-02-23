@@ -47,4 +47,4 @@ The Zebra model decides the source and target languages:
 pv_zebra_params_${SOURCE}_${TARGET}.pv
 ```
 
-Replace `${SOURCE}` with the source language and `${TARGET}` with the target language for the translation.
+Where `${SOURCE}` is the language code of the source language and `${TARGET}` is the language code of the target language for the translation.

@@ -22,7 +22,7 @@ def main():
         help='AccessKey obtained from Picovoice Console (https://console.picovoice.ai/)')
     parser.add_argument(
         '--model_path',
-        help='Absolute path to Zebra model.')
+        help='Absolute path to Zebra model (`.pv`). The model file sets the source and target translation languages.')
     parser.add_argument(
         '--library_path',
         help='Absolute path to dynamic library. Default: using the library provided by `pvzebra`')
