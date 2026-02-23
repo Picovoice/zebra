@@ -5,6 +5,7 @@ const { join } = require('path');
 console.log('Copying the zebra model...');
 
 const testDirectory = join(__dirname, '..', 'test');
+const fixturesDirectory = join(__dirname, '..', 'cypress', 'fixtures', 'resources');
 
 const paramsSourceDirectory = join(
   __dirname,
@@ -15,14 +16,13 @@ const paramsSourceDirectory = join(
   'common'
 );
 
-const testDataSource = join(
+const sourceDirectory = join(
   __dirname,
   '..',
   '..',
   '..',
   'resources',
   '.test',
-  'test_data.json'
 );
 
 try {
@@ -38,7 +38,8 @@ try {
     execSync(`npx pvbase64 -i ./test/params/${file} -o ./test/params/${outName}`)
   });
 
-  fs.copyFileSync(testDataSource, join(testDirectory, 'test_data.json'));
+  fs.mkdirSync(join(fixturesDirectory, '.test'), { recursive: true });
+  fs.copyFileSync(join(sourceDirectory, 'test_data.json'), join(fixturesDirectory, '.test', 'test_data.json'));
 } catch (error) {
   console.error(error);
 }

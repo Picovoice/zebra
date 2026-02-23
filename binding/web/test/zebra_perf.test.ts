@@ -12,7 +12,7 @@ const PROC_PERFORMANCE_THRESHOLD_SEC = Number(
 
 async function testPerformance(
   instance: typeof Zebra | typeof ZebraWorker,
-  inputPcm: Int16Array
+  inputText: string
 ) {
   const initPerfResults: number[] = [];
   const procPerfResults: number[] = [];
@@ -21,7 +21,7 @@ async function testPerformance(
     let start = Date.now();
 
     const zebra = await instance.create(ACCESS_KEY, {
-      publicPath: '/test/zebra_params.pv',
+      publicPath: '/test/params/zebra_params_en_fr.pv',
       forceWrite: true,
     }, DEVICE);
 
@@ -29,7 +29,7 @@ async function testPerformance(
     initPerfResults.push((end - start) / 1000);
 
     start = Date.now();
-    await zebra.process(inputPcm);
+    await zebra.translate(inputText);
     end = Date.now();
     procPerfResults.push((end - start) / 1000);
 
@@ -48,7 +48,7 @@ async function testPerformance(
   // eslint-disable-next-line no-console
   console.log(`Average init performance: ${initAvgPerf} seconds`);
   // eslint-disable-next-line no-console
-  console.log(`Average proc performance: ${procAvgPerf} seconds`);
+  console.log(`Average translate performance: ${procAvgPerf} seconds`);
 
   expect(initAvgPerf).to.be.lessThan(INIT_PERFORMANCE_THRESHOLD_SEC);
   expect(procAvgPerf).to.be.lessThan(PROC_PERFORMANCE_THRESHOLD_SEC);
@@ -61,8 +61,8 @@ describe('Zebra binding performance test', () => {
     const instanceString = instance === ZebraWorker ? 'worker' : 'main';
 
     it(`should be lower than performance threshold (${instanceString})`, () => {
-      cy.getFramesFromFile('audio_samples/test.wav').then(async inputPcm => {
-        await testPerformance(instance, inputPcm);
+      cy.wrap(null).then(async () => {
+        await testPerformance(instance, "I've seen things you people would not believe.");
       });
     });
   }
