@@ -26,7 +26,7 @@ npm install
 npm run start ${SOURCE} ${TARGET}
 ```
 
-Replace `${SOURCE}` and `${TARGET}` with the source/target language you would like to run the demo in.
+Where `${SOURCE}` is the language code of the source language and `${TARGET}` is the language code of the target language for the translation.
 
 Open `localhost:5000` in your web browser, as hinted at in the output:
 
