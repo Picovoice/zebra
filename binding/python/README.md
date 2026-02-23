@@ -55,7 +55,7 @@ The format of the model follows:
 pv_zebra_params_${SOURCE}_${TARGET}.pv
 ```
 
-where `${SOURCE}` is the source language and `${TARGET}` is the target language for the translation.
+Where `${SOURCE}` is the language code of the source language and `${TARGET}` is the language code of the target language for the translation.
 
 ## Demos
 
