@@ -26,7 +26,7 @@ const sourceDirectory = join(
 );
 
 try {
-  fs.mkdirSync(testDirectory, { recursive: true });
+  fs.mkdirSync(join(testDirectory, 'params'), { recursive: true });
 
   fs.readdirSync(paramsSourceDirectory).forEach(file => {
     fs.copyFileSync(
