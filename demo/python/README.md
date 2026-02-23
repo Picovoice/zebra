@@ -1,12 +1,12 @@
-# Zebra Text Translation Demos
+# Zebra Translate Demos
 
 Made in Vancouver, Canada by [Picovoice](https://picovoice.ai)
 
 ## Zebra
 
-Zebra is an on-device text translation engine. Zebra is:
+Zebra is a lightweight, on-device neural machine translation engine. Zebra is:
 
-- Private; Text translation runs locally.
+- Private; All processing runs locally.
 - Cross-Platform:
   - Linux (x86_64), macOS (x86_64, arm64), Windows (x86_64, arm64)
   - Raspberry Pi (3, 4, 5)

@@ -76,7 +76,7 @@ class ZebraActivationRefusedError(ZebraError):
 
 class Zebra(object):
     """
-    Python binding for Zebra Text Translation engine.
+    Python binding for Zebra Translate engine.
     """
 
     class PicovoiceStatuses(Enum):

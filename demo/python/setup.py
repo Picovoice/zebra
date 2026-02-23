@@ -29,7 +29,7 @@ setuptools.setup(
     version="1.0.0",
     author="Picovoice",
     author_email="hello@picovoice.ai",
-    description="Zebra Text Translation engine demo",
+    description="Zebra Translate demo",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Picovoice/zebra",

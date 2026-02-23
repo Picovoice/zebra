@@ -28,7 +28,7 @@ def create(
         device: Optional[str] = None,
         library_path: Optional[str] = None) -> Zebra:
     """
-    Factory method for Zebra text translation engine.
+    Factory method for Zebra Translate engine.
 
     :param access_key: AccessKey obtained from Picovoice Console (https://console.picovoice.ai/)
     :param model_path: Absolute path to the file containing model parameters (`.pv`).
