@@ -90,8 +90,8 @@ try {
 } catch (ZebraException e) { }
 ```
 
-Replace `${ACCESS_KEY}` with yours obtained from Picovoice Console, `${MODEL_FILE_PATH}` with an
-Zebra [voice model file](./lib/common) and `${TEXT}` with the text to be translated.
+Replace `${ACCESS_KEY}` with yours obtained from Picovoice Console, `${MODEL_FILE_PATH}` with a
+Zebra [model file](./lib/common) and `${TEXT}` with the text to be translated.
 
 ### iOS
 
