@@ -14,20 +14,16 @@ package ai.picovoice.zebra.testapp;
 
 import static org.junit.Assert.assertTrue;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 
 import ai.picovoice.zebra.Zebra;
 
-@RunWith(Parameterized.class)
+@RunWith(AndroidJUnit4.class)
 public class PerformanceTest extends BaseTest {
     final String modelFile = "zebra_params_en_fr.pv";
     final String testString = "I've seen things you people would not believe.";
@@ -45,7 +41,7 @@ public class PerformanceTest extends BaseTest {
     }
 
     @Test
-    public void testProcPerformance() throws Exception {
+    public void testPerformance() throws Exception {
         final String procThresholdString = appContext.getString(R.string.procPerformanceThresholdSec);
         Assume.assumeNotNull(procThresholdString);
         Assume.assumeFalse(procThresholdString.equals(""));

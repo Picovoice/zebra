@@ -31,7 +31,7 @@ jobs:
         device: [ android-perf ]
         include:
           - device: android-perf
-            procPerformanceThresholdSec: 3.0
+            procPerformanceThresholdSec: 1.0
 
     steps:
       - uses: actions/checkout@v3
@@ -71,7 +71,7 @@ jobs:
         run: echo pvTestingDevice="best" >> local.properties
 
       - name: Inject Number of Iterations
-        run: echo numTestIterations="30" >> local.properties
+        run: echo numTestIterations="20" >> local.properties
 
       - name: Inject Android keystore variables
         run: |

@@ -52,7 +52,7 @@ android {
     def testDataFile = file('../../../../resources/.test/test_data.json')
     def parsedJson = new JsonSlurper().parseText(testDataFile.text)
     def models = []
-    parsedJson.tests.language_tests.each { test ->
+    parsedJson.tests.translation_tests.each { test ->
         def source = test.source
         test.translations.each { target, _ ->
             def flavor = "${source}${target}"

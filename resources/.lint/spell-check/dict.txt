@@ -76,3 +76,4 @@ xcframework
 xcodeproj
 xcuitest
 xcworkspace
+zebrademo
