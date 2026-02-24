@@ -39,7 +39,7 @@
 
     // android
     "**/AndroidManifest.xml",
-    "**/orca_demo.xml",
+    "**/zebra_demo.xml",
 
     // wasm
     "**/lib/wasm/**/*.js"
