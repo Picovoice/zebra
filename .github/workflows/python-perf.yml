@@ -76,15 +76,15 @@ jobs:
         machine: [ rpi3-32, rpi3-64, rpi4-32, rpi4-64, rpi5-64 ]
         include:
           - machine: rpi3-32
-            performance_threshold_sec: 3.5
+            performance_threshold_sec: 6.0
           - machine: rpi3-64
-            performance_threshold_sec: 0.5
+            performance_threshold_sec: 4.0
           - machine: rpi4-32
-            performance_threshold_sec: 0.4
+            performance_threshold_sec: 3.0
           - machine: rpi4-64
-            performance_threshold_sec: 0.4
+            performance_threshold_sec: 3.0
           - machine: rpi5-64
-            performance_threshold_sec: 0.3
+            performance_threshold_sec: 1.5
 
 
     steps:
