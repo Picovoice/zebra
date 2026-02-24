@@ -71,7 +71,7 @@ jobs:
         run: echo pvTestingDevice="best" >> local.properties
 
       - name: Inject Number of Iterations
-        run: echo numTestIterations="20" >> local.properties
+        run: echo numTestIterations="30" >> local.properties
 
       - name: Inject Android keystore variables
         run: |
