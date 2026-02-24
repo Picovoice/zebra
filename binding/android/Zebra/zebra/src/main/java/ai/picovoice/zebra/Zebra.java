@@ -149,9 +149,9 @@ public class Zebra {
     }
 
     /**
-     * Getter for the maximum number of characters that can be synthesized at once.
+     * Getter for the maximum number of characters that can be translated at once.
      *
-     * @return The maximum number of characters that can be synthesized at once.
+     * @return The maximum number of characters that can be translated at once.
      */
     public int getMaxCharacterLimit() {
         return maxCharacterLimit;
