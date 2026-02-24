@@ -14,12 +14,11 @@ import shutil
 
 import setuptools
 
-INCLUDE_FILES = ("../../LICENSE", "__init__.py", "_factory.py", "_zebra.py", "_util.py")
-INCLUDE_LIBS = ('common', 'linux', 'mac', 'raspberry-pi', 'windows')
+INCLUDE_FILES = ('../../LICENSE', '__init__.py', '_factory.py', '_zebra.py', '_util.py')
+INCLUDE_LIBS = ('linux', 'mac', 'raspberry-pi', 'windows')
+os.system('git clean -dfx')
 
-os.system("git clean -dfx")
-
-package_folder = os.path.join(os.path.dirname(__file__), "pvzebra")
+package_folder = os.path.join(os.path.dirname(__file__), 'pvzebra')
 os.mkdir(package_folder)
 manifest_in = ""
 
@@ -27,17 +26,18 @@ for rel_path in INCLUDE_FILES:
     shutil.copy(os.path.join(os.path.dirname(__file__), rel_path), package_folder)
     manifest_in += "include pvzebra/%s\n" % os.path.basename(rel_path)
 
-os.mkdir(os.path.join(package_folder, "lib"))
+os.mkdir(os.path.join(package_folder, 'lib'))
 for platform in INCLUDE_LIBS:
     shutil.copytree(
-        os.path.join(os.path.dirname(__file__), "../../lib", platform), os.path.join(package_folder, "lib", platform)
-    )
+        os.path.join(os.path.dirname(__file__), '../../lib', platform),
+        os.path.join(package_folder, 'lib', platform))
+
 manifest_in += "recursive-include pvzebra/lib *\n"
 
-with open(os.path.join(os.path.dirname(__file__), "MANIFEST.in"), "w") as f:
+with open(os.path.join(os.path.dirname(__file__), 'MANIFEST.in'), 'w') as f:
     f.write(manifest_in)
 
-with open(os.path.join(os.path.dirname(__file__), "README.md"), "r") as f:
+with open(os.path.join(os.path.dirname(__file__), 'README.md'), 'r') as f:
     long_description = f.read()
 
 setuptools.setup(

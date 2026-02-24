@@ -93,4 +93,4 @@ jobs:
           --text "Hello my name is"
 
       - name: Test get devices
-        run: python zebra_demo.py --show_inference_devices
+        run: python3 zebra_demo.py --show_inference_devices

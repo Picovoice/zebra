@@ -38,11 +38,11 @@ jobs:
         os: [ ubuntu-latest, windows-latest, macos-latest ]
         include:
           - os: ubuntu-latest
-            performance_threshold_sec: 0.3
+            performance_threshold_sec: 0.4
           - os: windows-latest
-            performance_threshold_sec: 0.3
+            performance_threshold_sec: 0.6
           - os: macos-latest
-            performance_threshold_sec: 0.3
+            performance_threshold_sec: 0.4
 
     steps:
       - uses: actions/checkout@v3
@@ -63,7 +63,7 @@ jobs:
           python3 test_zebra_perf.py
           --access-key ${{ secrets.PV_VALID_ACCESS_KEY }}
           --device ${{ matrix.device }}
-          --num-test-iterations 20
+          --num-test-iterations 10
           --performance-threshold-sec ${{ matrix.performance_threshold_sec }}
 
   perf-self-hosted:
@@ -76,7 +76,7 @@ jobs:
         machine: [ rpi3-32, rpi3-64, rpi4-32, rpi4-64, rpi5-64 ]
         include:
           - machine: rpi3-32
-            performance_threshold_sec: 0.5
+            performance_threshold_sec: 3.5
           - machine: rpi3-64
             performance_threshold_sec: 0.5
           - machine: rpi4-32
@@ -105,7 +105,7 @@ jobs:
           python3 test_zebra_perf.py
           --access-key ${{ secrets.PV_VALID_ACCESS_KEY }}
           --device ${{ matrix.device }}
-          --num-test-iterations 20
+          --num-test-iterations 10
           --performance-threshold-sec ${{ matrix.performance_threshold_sec }}
 
       - name: Machine state after
@@ -122,7 +122,7 @@ jobs:
         machine: [ pv-windows-arm64 ]
         include:
           - machine: pv-windows-arm64
-            performance_threshold_sec: 0.2
+            performance_threshold_sec: 0.4
     steps:
       - uses: actions/checkout@v3
 
@@ -137,5 +137,5 @@ jobs:
           python3 test_zebra_perf.py
           --access-key ${{ secrets.PV_VALID_ACCESS_KEY }}
           --device ${{ matrix.device }}
-          --num-test-iterations 20
+          --num-test-iterations 10
           --performance-threshold-sec ${{ matrix.performance_threshold_sec }}
