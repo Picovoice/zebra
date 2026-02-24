@@ -1,0 +1,2 @@
+include ':zebra'
+rootProject.name = "Zebra"

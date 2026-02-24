@@ -1,0 +1,2 @@
+rootProject.name = "ZebraDemo"
+include ':zebra-demo-app'

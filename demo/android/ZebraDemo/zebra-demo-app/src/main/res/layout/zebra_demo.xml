@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foregroundTint="#002A1F65"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/translateView"
+        android:background="@drawable/translation_view_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:gravity="top|start"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/translateGuideline" />
+
+    <TextView
+        android:id="@+id/errorTextView"
+        android:background="@drawable/error_view_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:gravity="top|start"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:textColor="#FFFFFF"
+        android:visibility="invisible"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/translateGuideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/translateGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <EditText
+        android:id="@+id/textView"
+        android:background="@drawable/text_view_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:textColorHint="#9E9E9E"
+        android:textColor="#000000"
+        android:gravity="top|start"
+        android:importantForAutofill="no"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:textSize="20sp"
+        android:hint="Enter text to translate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/translateGuideline"
+        app:layout_constraintBottom_toBottomOf="@+id/textGuideline" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:theme="@style/ButtonStyle"
+        android:textColor="@android:color/white"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:text="clear"
+        android:onClick="onResetClick"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+    <TextView
+        android:id="@+id/numCharsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text=""
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/textGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <TextView
+        android:id="@+id/infoTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        android:text=""
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/translateButton"
+        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
+
+    <Button
+        android:id="@+id/translateButton"
+        android:theme="@style/ButtonStyle"
+        android:textColor="@android:color/white"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="onTranslateClick"
+        android:text="TRANSLATE"
+        android:textSize="20sp"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
