@@ -42,7 +42,7 @@ print(translation)
 ```
 
 Replace `${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/), `${MODEL_PATH}` with
-a supported translation model located [here](../../lib/common/) and`${TEXT}` with the text to translate.
+a supported translation model located [here](../../lib/common/) and `${TEXT}` with the text to translate.
 Finally, when done be sure to explicitly release the resources using `handle.delete()`.
 
 ### Translation Models
