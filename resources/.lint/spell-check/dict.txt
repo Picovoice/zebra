@@ -23,6 +23,7 @@ dylib
 editdistance
 Embedder
 emscripten
+enfr
 finalizer
 flac
 floatfmt
