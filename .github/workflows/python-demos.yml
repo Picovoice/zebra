@@ -53,6 +53,7 @@ jobs:
         run: >
           python zebra_demo.py
           --access_key ${{secrets.PV_VALID_ACCESS_KEY}}
+          --model_path ../../lib/common/zebra_params_en_fr.pv
           --device ${{ matrix.device }}
           --text "Hello my name is"
 
@@ -87,6 +88,7 @@ jobs:
         run: >
           python3 zebra_demo.py
           --access_key ${{secrets.PV_VALID_ACCESS_KEY}}
+          --model_path ../../lib/common/zebra_params_en_fr.pv
           --device ${{ matrix.device }}
           --text "Hello my name is"
 
