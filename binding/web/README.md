@@ -92,7 +92,7 @@ run:
 npx pvbase64 -h
 ```
 
-### Language Model
+### Model
 
 Zebra saves and caches your model file in IndexedDB to be used by WebAssembly. Use a different `customWritePath` variable
 to hold multiple models and set the `forceWrite` value to true to force re-save a model file.
@@ -119,7 +119,7 @@ Zebra translation models are located [here](../../lib/common/). The selected mod
 The format of the model follows:
 
 ```console
-pv_zebra_params_${SOURCE}_${TARGET}.pv
+zebra_params_${SOURCE}_${TARGET}.pv
 ```
 
 Where `${SOURCE}` is the language code of the source language and `${TARGET}` is the language code of the target language for the translation.
