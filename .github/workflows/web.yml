@@ -54,5 +54,3 @@ jobs:
 
       - name: Test
         run: yarn test --env ACCESS_KEY=${{secrets.PV_VALID_ACCESS_KEY}},DEVICE=${{matrix.device}}
-        env:
-          DEBUG: 'cypress:server:util:process_profiler'
