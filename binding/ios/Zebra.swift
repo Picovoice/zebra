@@ -149,6 +149,7 @@ public class Zebra {
         if handle != nil {
             pv_zebra_delete(handle)
             handle = nil
+            _maxCharacterLimit = 0
         }
     }
 
