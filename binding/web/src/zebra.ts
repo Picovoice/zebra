@@ -202,7 +202,7 @@ export class Zebra {
    * it can create an instance.
    *
    * @param accessKey AccessKey obtained from Picovoice Console (https://console.picovoice.ai/)
-   * @param model Zebra model options.
+   * @param model Zebra model options. The model sets the source and target translation languages.
    * @param model.base64 The model in base64 string to initialize Zebra.
    * @param model.publicPath The model path relative to the public directory.
    * @param model.customWritePath Custom path to save the model in storage.

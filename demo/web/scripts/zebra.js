@@ -4,6 +4,7 @@ window.onload = function () {
   const textarea = document.getElementById('text');
   const translateButton = document.getElementById('translate');
   const result = document.getElementById('result');
+  const characters = document.getElementById('characters');
 
   translateButton.addEventListener('click', async () => {
     const text = textarea.value;
@@ -11,6 +12,18 @@ window.onload = function () {
     translateButton.disabled = true;
     result.innerText = await zebra.translate(text);
     translateButton.disabled = false;
+  });
+
+  textarea.addEventListener('input', () => {
+    if (!zebra) {
+      return;
+    }
+
+    const text = textarea.value;
+    if (text.length > zebra.maxCharacterLimit) {
+      textarea.value = text.substring(0, zebra.maxCharacterLimit);
+    }
+    characters.innerText = textarea.value.length;
   });
 };
 
@@ -24,6 +37,7 @@ async function startZebra(accessKey) {
   try {
     zebra = await ZebraWeb.ZebraWorker.create(accessKey, zebraModel);
     document.getElementById("control").style.display = "block";
+    document.getElementById('characterLimit').innerText = zebra.maxCharacterLimit;
     writeMessage("Zebra worker ready!");
   } catch (err) {
     writeMessage(err);
