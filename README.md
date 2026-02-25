@@ -58,6 +58,18 @@ For more information about Python demos go to [demo/python](./demo/python).
 
 ### Android Demos
 
+Using Android Studio, open [demo/android/ZebraDemo](./demo/android/ZebraDemo) as an Android project.
+
+Replace `"${YOUR_ACCESS_KEY_HERE}"` in the
+file [MainActivity.java](./demo/android/ZebraDemo/zebra-demo-app/src/main/java/ai/picovoice/zebrademo/MainActivity.java)
+with your `AccessKey`.
+
+Go to `Build > Select Build Variant...` and select the language you would like to run the demo in (e.g. `enfrDebug` -> English to French translation demo)
+
+Build and run on an installed simulator or a connected Android device.
+
+For more information about Android demos go to [demo/android](demo/android).
+
 ### iOS Demos
 
 ### Web Demos
@@ -94,6 +106,34 @@ zebra.delete()
 ### C
 
 ### Android
+
+To include the Zebra package in your Android project, ensure you have included `mavenCentral()` in your
+top-level `build.gradle` file and then add the following to your app's `build.gradle`:
+
+```groovy
+dependencies {
+    implementation 'ai.picovoice:zebra-android:${LATEST_VERSION}'
+}
+```
+
+Create an instance of the engine and translate text:
+
+```java
+import ai.picovoice.zebra.*;
+
+final String accessKey = "${ACCESS_KEY}"; // AccessKey obtained from Picovoice Console (https://console.picovoice.ai/)
+final String modelPath = "${MODEL_FILE_PATH}";
+try {
+    Zebra zebra = new Zebra.Builder()
+        .setAccessKey(accessKey)
+        .setModelPath(modelPath)
+        .build(appContext);
+    String translation = zebra.translate("${TEXT}");
+} catch (ZebraException e) { }
+```
+
+Replace `${ACCESS_KEY}` with yours obtained from Picovoice Console, `${MODEL_FILE_PATH}` with a
+Zebra [model file](./lib/common) and `${TEXT}` with the text to be translated.
 
 ### iOS
 

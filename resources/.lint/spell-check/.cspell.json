@@ -37,9 +37,17 @@
     "**/*.xcscheme",
     "**/*.m",
 
+    // java
+    "**/build.gradle",
+    "**/gradle-wrapper.properties",
+    "**/gradle.properties",
+    "**/gradlew",
+    "**/gradlew.bat",
+    "**/proguard-rules.pro",
+
     // android
     "**/AndroidManifest.xml",
-    "**/orca_demo.xml",
+    "**/zebra_demo.xml",
 
     // wasm
     "**/lib/wasm/**/*.js"

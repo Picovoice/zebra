@@ -23,6 +23,7 @@ dylib
 editdistance
 Embedder
 emscripten
+enfr
 finalizer
 flac
 floatfmt
@@ -78,3 +79,4 @@ xcframework
 xcodeproj
 xcuitest
 xcworkspace
+zebrademo
