@@ -54,6 +54,8 @@ Podfile
 popleft
 pthread
 pvbase
+pvzebra
+pvzebrademo
 Readables
 samplerate
 Sevilla

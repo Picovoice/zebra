@@ -37,6 +37,23 @@ Zebra is a lightweight, on-device neural machine translation engine.
 
 ### Python Demos
 
+Install the demo package:
+
+```console
+pip3 install pvzebrademo
+```
+
+Run the following in the terminal:
+
+```console
+zebra_demo --access_key ${ACCESS_KEY} --model_path ${MODEL_PATH} --text ${TEXT}
+```
+
+Replace `${ACCESS_KEY}` with yours obtained from Picovoice Console, `${MODEL_PATH}` with
+a supported translation model located [here](../../lib/common/) and `${TEXT}` with the text to translate.
+
+For more information about Python demos go to [demo/python](./demo/python).
+
 ### C Demos
 
 ### Android Demos
@@ -48,6 +65,31 @@ Zebra is a lightweight, on-device neural machine translation engine.
 ## SDKs
 
 ### Python
+
+Install the Python SDK:
+
+```console
+pip3 install pvzebra
+```
+
+Create an instance of the engine and perform text translation:
+
+```python
+import pvzebra
+
+zebra = pvzebra.create(access_key='${ACCESS_KEY}', model_path='${MODEL_PATH}')
+
+print(zebra.translate('${TEXT}'))
+```
+
+Replace `${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/), `${MODEL_PATH}` with
+a supported translation model located [here](../../lib/common/) and `${TEXT}` with the text to translate.
+
+Finally, when done be sure to explicitly release the resources:
+
+```python
+zebra.delete()
+```
 
 ### C
 
