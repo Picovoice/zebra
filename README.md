@@ -93,6 +93,26 @@ For more information about Android demos go to [demo/android](demo/android).
 
 ### Web Demos
 
+From [demo/web](./demo/web) run the following in the terminal:
+
+```console
+yarn
+yarn start [${SOURCE}] [${TARGET}]
+```
+
+(or)
+
+```console
+npm install
+npm run start [${SOURCE}] [${TARGET}]
+```
+
+Replace `${SOURCE}` and `${TARGET}` with the source/target language you would like to run the demo in.
+
+Open `http://localhost:5000` in your browser to try the demo.
+
+For more information about Web demos go to [demo/web](./demo/web).
+
 ## SDKs
 
 ### Python
@@ -157,5 +177,36 @@ Zebra [model file](./lib/common) and `${TEXT}` with the text to be translated.
 ### iOS
 
 ### Web
+
+Install the web SDK using yarn:
+
+```console
+yarn add @picovoice/zebra-web
+```
+
+or using npm:
+
+```console
+npm install --save @picovoice/zebra-web
+```
+
+Create an instance of the engine using `ZebraWorker` and translate text:
+
+```typescript
+import { ZebraWorker } from "@picovoice/zebra-web";
+import zebraParams from "${PATH_TO_BASE64_ZEBRA_PARAMS}";
+
+const zebra = await ZebraWorker.create(
+  "${ACCESS_KEY}",
+  { base64: zebraParams },
+);
+
+const translation = await zebra.translate("${TEXT}");
+console.log(translation);
+```
+
+Replace `${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/). Finally, when done release the resources using `zebra.release()`.
+
+For more details, see the [Web SDK](./binding/web/).
 
 ## Releases

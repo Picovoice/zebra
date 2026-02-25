@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="node_modules/@picovoice/zebra-web/dist/iife/index.js"></script>
+    <script src="node_modules/@picovoice/web-voice-processor/dist/iife/index.js"></script>
+    <script type="application/javascript" src="scripts/zebra.js"></script>
+    <script>
+      const script = document.createElement('script');
+      script.src = 'models/zebraModel.js?t=' + Date.now();
+      document.head.appendChild(script);
+    </script>
+  </head>
+  <body>
+    <h1>Zebra Web Demo</h1>
+    <p>This demo uses Zebra for Web to:</p>
+    <ol>
+      <li>Create an instance of Zebra with a translation model.</li>
+      <li>
+        Translate text in browser:
+        the data does not leave the browser while Zebra translates.
+      </li>
+    </ol>
+    After entering the AccessKey, click the "Start Zebra" button.
+    <hr />
+    <label for="accessKey"
+      >AccessKey obtained from
+      <a href="https://console.picovoice.ai/">Picovoice Console</a>:</label
+    >
+    <input type="text" id="accessKey" name="accessKey" />
+    <input
+      type="button"
+      id="submit"
+      value="Start Zebra"
+      onclick="startZebra(document.getElementById('accessKey').value)"
+    />
+    <hr />
+    <div id="status" style="white-space: pre"></div>
+    <div id="control" style="display: none">
+      <hr />
+      <label for="text">Enter text:</label>
+      <div style="width: fit-content;">
+        <textarea id="text" name="text" cols="50" rows="7"></textarea>
+        <div>
+          <small style="float: right;">Characters: <span id="characters">0</span> / <span id="characterLimit">0</span></small>
+        </div>
+      </div>
+      <br>
+      <button id="translate">Translate</button>
+      <hr />
+      <div id="result"></div>
+    </div>
+  </body>
+</html>
