@@ -1,0 +1,85 @@
+name: iOS BrowserStack Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/ios-browserstack.yml'
+      - 'binding/ios/ZebraAppTest/**'
+      - 'resources/.test/**'
+  pull_request:
+    branches: [ main, 'v[0-9]+.[0-9]+' ]
+    paths:
+      - '.github/workflows/ios-browserstack.yml'
+      - 'binding/ios/ZebraAppTest/**'
+      - 'resources/.test/**'
+
+defaults:
+  run:
+    working-directory: binding/ios/ZebraAppTest
+
+jobs:
+  build:
+    name: Run iOS Tests on BrowserStack
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Installing Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run:
+          pip3 install requests
+
+      - name: Make build dir
+        run: mkdir ddp
+
+      - name: Install resource script dependency
+        run: |
+          brew update
+          brew install convmv
+
+      - name: Copy test_resources
+        run: ./copy_test_resources.sh
+
+      - name: Inject AccessKey
+        run: sed -i '.bak' 's:{TESTING_ACCESS_KEY_HERE}:${{secrets.PV_VALID_ACCESS_KEY}}:'
+          ZebraAppTestUITests/BaseTest.swift
+
+      - name: Inject Device
+        run: sed -i '.bak' 's:{TESTING_DEVICE_HERE}:best:'
+          ZebraAppTestUITests/BaseTest.swift
+
+      - name: XCode Build
+        run: xcrun xcodebuild build-for-testing
+          -configuration Debug
+          -project ZebraAppTest.xcodeproj
+          -sdk iphoneos
+          -scheme ZebraAppTest
+          -derivedDataPath ddp
+          CODE_SIGNING_ALLOWED=NO
+
+      - name: Generating ipa
+        run: cd ddp/Build/Products/Debug-iphoneos/ &&
+          mkdir Payload &&
+          cp -r ZebraAppTest.app Payload &&
+          zip --symlinks -r ZebraAppTest.ipa Payload &&
+          rm -r Payload
+
+      - name: Zipping Tests
+        run: cd ddp/Build/Products/Debug-iphoneos/ &&
+          zip --symlinks -r ZebraAppTestUITests.zip ZebraAppTestUITests-Runner.app
+
+      - name: Run tests on BrowserStack
+        run: python3 ../../../script/automation/browserstack.py
+          --type xcuitest
+          --username "${{secrets.BROWSERSTACK_USERNAME}}"
+          --access_key "${{secrets.BROWSERSTACK_ACCESS_KEY}}"
+          --project_name "Zebra-iOS"
+          --devices "ios-min-max"
+          --app_path "ddp/Build/Products/Debug-iphoneos/ZebraAppTest.ipa"
+          --test_path "ddp/Build/Products/Debug-iphoneos/ZebraAppTestUITests.zip"
