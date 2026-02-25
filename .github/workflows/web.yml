@@ -53,4 +53,6 @@ jobs:
         run: yarn setup-test
 
       - name: Test
-        run: DEBUG=cypress:*,\-cypress:server:util:process_profiler yarn test --env ACCESS_KEY=${{secrets.PV_VALID_ACCESS_KEY}},DEVICE=${{matrix.device}}
+        run: yarn test --env ACCESS_KEY=${{secrets.PV_VALID_ACCESS_KEY}},DEVICE=${{matrix.device}}
+        env:
+          NODE_OPTIONS: "--max-old-space-size=2048"
