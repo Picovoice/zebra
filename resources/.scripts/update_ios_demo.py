@@ -34,12 +34,8 @@ def update_ios_demo(models):
         if not os.path.exists(model_scheme):
             print(f"Creating iOS demo scheme for `{model_target}`")
             base_scheme_content = minidom.parse(base_scheme)
-            pre_build_action = base_scheme_content.getElementsByTagName('ActionContent')[0]
             env_var = base_scheme_content.getElementsByTagName('EnvironmentVariable')[0]
-            pre_build_action.setAttribute(
-                'scriptText',
-                pre_build_action.attributes['scriptText'].value.replace(" en_fr", f" {model_snake}"))
-            env_var.setAttribute('value', model_snake)
+            env_var.setAttribute('value', f'{source}_{target}')
             with open(os.path.join(scheme_dir, f"{model_target}Demo.xcscheme"), 'w') as f:
                 f.write(base_scheme_content.toxml())
         else:
