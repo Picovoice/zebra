@@ -53,7 +53,7 @@ class ZebraCTestCase(unittest.TestCase):
             os.path.join(os.path.dirname(__file__), "../build/zebra_demo"),
             "-a", self._access_key,
             "-l", self._get_library_file(),
-            "-m", os.path.join(self._root_dir, 'lib/common/zebra_params.pv'),
+            "-m", os.path.join(self._root_dir, 'lib/common/zebra_params_en_fr.pv'),
             "-p", "Hello my name is",
             "-y", self._device,
         ]
