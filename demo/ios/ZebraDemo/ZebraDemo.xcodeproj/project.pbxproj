@@ -18,13 +18,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02A11945268D39A700A2AC99 /* ZebraDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ZebraDemo.app; path = "/Volumes/k/work/github/zebra/demo/ios/ZebraDemo/build/Debug-iphoneos/ZebraDemo.app"; sourceTree = "<absolute>"; };
 		02A11948268D39A700A2AC99 /* ZebraDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZebraDemoApp.swift; sourceTree = "<group>"; };
 		02A1194A268D39A700A2AC99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		02A1194C268D39AB00A2AC99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02A11951268D39AB00A2AC99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1EA6387B2F4E644700BCC037 /* zebra_params_en_fr.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = zebra_params_en_fr.pv; path = /Volumes/k/work/github/zebra/lib/common/zebra_params_en_fr.pv; sourceTree = "<absolute>"; };
+		1EA6387B2F4E644700BCC037 /* zebra_params_en_fr.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = zebra_params_en_fr.pv; path = ../../../lib/common/zebra_params_en_fr.pv; sourceTree = SOURCE_ROOT; };
 		1EA638802F4E64D600BCC037 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		1EA638822F4E867000BCC037 /* ZebraDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZebraDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1DDE9B02DB9BFB50068F88C /* pre-build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "pre-build.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +45,7 @@
 			children = (
 				02A11947268D39A700A2AC99 /* ZebraDemo */,
 				E1DDE9B02DB9BFB50068F88C /* pre-build.sh */,
+				1EA638822F4E867000BCC037 /* ZebraDemo.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,7 +87,7 @@
 			);
 			name = ZebraDemo;
 			productName = ZebraDemo;
-			productReference = 02A11945268D39A700A2AC99 /* ZebraDemo.app */;
+			productReference = 1EA638822F4E867000BCC037 /* ZebraDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
