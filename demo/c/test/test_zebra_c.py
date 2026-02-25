@@ -54,15 +54,15 @@ class ZebraCTestCase(unittest.TestCase):
             "-a", self._access_key,
             "-l", self._get_library_file(),
             "-m", os.path.join(self._root_dir, 'lib/common/zebra_params_en_fr.pv'),
-            "-p", "Hello my name is",
+            "-t", "Hello my name is",
             "-y", self._device,
         ]
         process = subprocess.Popen(args, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
         stdout, stderr = process.communicate()
         self.assertEqual(process.poll(), 0)
 
-        translation = stdout.decode('utf-8').split("<pad> ")[-1].strip()
-        self.assertEqual(translation, "Bonjour mon nom est</s>")
+        translation = stdout.decode('utf-8').split("Translation:")[-1].strip()
+        self.assertEqual(translation, "Bonjour mon nom est")
         self.assertEqual(stderr.decode('utf-8'), '')
 
     def test_list_hardware_devices(self):
