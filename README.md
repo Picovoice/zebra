@@ -43,6 +43,14 @@ Zebra is a lightweight, on-device neural machine translation engine.
 
 ### iOS Demos
 
+1. Open [ZebraDemo.xcodeproj](demo/ios/ZebraDemo/ZebraDemo.xcodeproj) in XCode.
+2. Replace `${YOUR_ACCESS_KEY_HERE}` in the file [`ViewModel.swift`](demo/ios/ZebraDemo/ZebraDemo/ViewModel.swift) with your `AccessKey`.
+3. Go to `Product > Scheme` and select the scheme for the language you would like to run the demo in (e.g. `enfrDemo` -> English to French translation demo).
+4. Run the demo with a simulator or connected iOS device.
+5. Once the demo app has started, enter the text you wish to translate in the text box area, and press the `Translate` button to translate the text.
+
+For more information about iOS demos go to [demo/ios](demo/ios).
+
 ### Web Demos
 
 ## SDKs
@@ -54,6 +62,39 @@ Zebra is a lightweight, on-device neural machine translation engine.
 ### Android
 
 ### iOS
+
+Create an instance of the engine:
+
+```swift
+import Zebra
+
+let modelPath = Bundle(for: type(of: self)).path(
+        forResource: "${MODEL_FILE}", // Name of the model file name for Zebra
+        ofType: "pv")!
+
+do {
+  let zebra = try Zebra(accessKey: "${ACCESS_KEY}", modelPath: modelPath)
+} catch {}
+```
+
+Replace `${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/) and `${MODEL_FILE}`
+with the model file name for Zebra.
+
+#### Translate
+
+```swift
+do {
+    let translation = try zebra.translate(text: "${TEXT}")
+} catch {}
+```
+
+Replace `${TEXT}` with the text to be translated.
+
+#### Release resources
+
+When done be sure to explicitly release the resources using `zebra.delete()`.
+
+For more details, see the [iOS SDK](./binding/ios/).
 
 ### Web
 
