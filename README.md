@@ -56,6 +56,8 @@ Replace `${LIBRARY_PATH}` with path to appropriate library available under [lib]
 `${MODEL_PATH}` with a supported translation model located [here](../../lib/common/) and
 `${TEXT}` with the text to translate.
 
+For more information about C demos go to [demo/c](demo/c).
+
 ### Android Demos
 
 ### iOS Demos

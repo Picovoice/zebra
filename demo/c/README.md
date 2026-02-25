@@ -49,3 +49,16 @@ Replace `${LIBRARY_PATH}` with path to appropriate library available under [lib]
 `${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/),
 `${MODEL_PATH}` with a supported translation model located [here](../../lib/common/) and
 `${TEXT}` with the text to translate.
+
+### Translation Models
+
+Zebra translation models are located [here](../../lib/common/). The selected model decides the source and target translation languages.
+
+The format of the model follows:
+
+```console
+zebra_params_${SOURCE}_${TARGET}.pv
+```
+
+Where `${SOURCE}` is the language code of the source language and `${TARGET}` is the language code of the target language for the translation.
+
