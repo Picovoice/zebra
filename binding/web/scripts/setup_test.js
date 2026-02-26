@@ -36,10 +36,13 @@ try {
     );
 
     const outName = file.replace(".pv", ".txt")
-    execSync(`base64 -i ./test/params/${file} -o ${fixturesDirectory}/params/${outName}`)
+    const fileBuffer = fs.readFileSync(`./test/params/${file}`);
+    const base64 = fileBuffer.toString("base64");
+    fs.writeFileSync(`${fixturesDirectory}/params/${outName}`, base64);
   });
 
-  fs.copyFileSync(join(sourceDirectory, 'test_data.json'), join(testDirectory, 'test_data.json'));
+  fs.mkdirSync(join(fixturesDirectory, 'resources', '.test'), { recursive: true });
+  fs.copyFileSync(join(sourceDirectory, 'test_data.json'), join(fixturesDirectory, 'resources', '.test', 'test_data.json'));
 } catch (error) {
   console.error(error);
 }
