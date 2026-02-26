@@ -1,5 +1,5 @@
 import { Zebra, ZebraWorker } from '../';
-import testData from '../cypress/fixtures/resources/.test/test_data.json';
+import testData from './test_data.json';
 
 import { PvModel } from '@picovoice/web-utils';
 import { ZebraError } from '../src/zebra_errors';
