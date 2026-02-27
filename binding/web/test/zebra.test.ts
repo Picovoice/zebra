@@ -1,8 +1,6 @@
 import { Zebra, ZebraWorker } from '../';
 import testData from '../cypress/fixtures/resources/.test/test_data.json';
 
-// @ts-ignore
-import zebraParams from './params/zebra_params_en_fr';
 import { PvModel } from '@picovoice/web-utils';
 import { ZebraError } from '../src/zebra_errors';
 
@@ -158,9 +156,9 @@ describe('Zebra Binding', function () {
     });
 
     it(`should be able to init with base64 (${instanceString})`, () => {
-      cy.wrap(null).then(async () => {
+      cy.loadTextFile("params/zebra_params_en_fr.txt").then(async b64params => {
         await runInitTest(instance, {
-          model: { base64: zebraParams, forceWrite: true },
+          model: { base64: b64params, forceWrite: true },
         });
       });
     });

@@ -5,7 +5,7 @@ const { join } = require('path');
 console.log('Copying the zebra model...');
 
 const testDirectory = join(__dirname, '..', 'test');
-const fixturesDirectory = join(__dirname, '..', 'cypress', 'fixtures', 'resources');
+const fixturesDirectory = join(__dirname, '..', 'cypress', 'fixtures');
 
 const paramsSourceDirectory = join(
   __dirname,
@@ -27,6 +27,7 @@ const sourceDirectory = join(
 
 try {
   fs.mkdirSync(join(testDirectory, 'params'), { recursive: true });
+  fs.mkdirSync(join(fixturesDirectory, 'params'), { recursive: true });
 
   fs.readdirSync(paramsSourceDirectory).forEach(file => {
     fs.copyFileSync(
@@ -34,12 +35,14 @@ try {
       join(testDirectory, 'params', file)
     );
 
-    const outName = file.replace(".pv", ".js")
-    execSync(`npx pvbase64 -i ./test/params/${file} -o ./test/params/${outName}`)
+    const outName = file.replace(".pv", ".txt")
+    const fileBuffer = fs.readFileSync(`./test/params/${file}`);
+    const base64 = fileBuffer.toString("base64");
+    fs.writeFileSync(`${fixturesDirectory}/params/${outName}`, base64);
   });
 
-  fs.mkdirSync(join(fixturesDirectory, '.test'), { recursive: true });
-  fs.copyFileSync(join(sourceDirectory, 'test_data.json'), join(fixturesDirectory, '.test', 'test_data.json'));
+  fs.mkdirSync(join(fixturesDirectory, 'resources', '.test'), { recursive: true });
+  fs.copyFileSync(join(sourceDirectory, 'test_data.json'), join(fixturesDirectory, 'resources', '.test', 'test_data.json'));
 } catch (error) {
   console.error(error);
 }
