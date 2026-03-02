@@ -2,10 +2,74 @@
   "tests": {
     "translation_tests": [
       {
+        "source": "de",
+        "text": "Ich habe heute Morgen einen sehr großen Kaffee in Berlin getrunken.",
+        "translations": {
+          "en": "I had a very big coffee in Berlin this morning.",
+          "es": "Bebí un café muy grande en Berlín esta mañana.",
+          "fr": "J'ai bu un très grand café à Berlin ce matin.",
+          "it": "Stamattina ho bevuto un grosso caffè a Berlino."
+        }
+      },
+      {
         "source": "en",
         "text": "I've seen things you people would not believe.",
         "translations": {
-          "fr": "J'ai vu des choses que vous ne croiriez pas."
+          "de": "Ich habe Dinge gesehen, die ihr Leute nicht glauben würdet.",
+          "es": "He visto cosas que ustedes no creerían.",
+          "fr": "J'ai vu des choses que vous ne croiriez pas.",
+          "it": "Ho visto cose che voi non credereste."
+        }
+      },
+      {
+        "source": "es",
+        "text": "El fuego fue tan intenso que los bomberos no pudieron entrar.",
+        "translations": {
+          "de": "Das Feuer war so heftig, dass Feuerwehrleute nicht reinkamen.",
+          "en": "The fire was so intense that the firemen couldn't get in.",
+          "fr": "Le feu était si intense que les pompiers n'ont pas pu entrer.",
+          "it": "Il fuoco è stato così intenso che i pompieri non sono riusciti a entrare."
+        }
+      },
+      {
+        "source": "fr",
+        "text": "Il est très important de manger des fruits et des légumes chaque jour.",
+        "translations": {
+          "de": "Es ist sehr wichtig, Obst und Gemüse jeden Tag zu essen.",
+          "en": "It is very important to eat fruits and vegetables every day.",
+          "es": "Es muy importante comer frutas y verduras cada día."
+        }
+      },
+      {
+        "source": "it",
+        "text": "Ogni giorno mi sveglio presto e faccio una lunga passeggiata.",
+        "translations": {
+          "de": "Ich werde jeden Tag früh aufwachen und einen langen Spaziergang machen.",
+          "en": "Every day I wake up early and take a long walk.",
+          "es": "Cada día me despierto temprano y doy un largo paseo.",
+          "fr": "Chaque jour, je me réveille tôt et je fais une longue promenade."
+        }
+      },
+      {
+        "source": "ja",
+        "text": "明日、友達と一緒に映画を見に行く予定です。",
+        "translations": {
+          "de": "Ich werde morgen mit meinen Freunden ins Kino gehen.",
+          "en": "I plan to go to the movies with my friends tomorrow.",
+          "es": "Voy a ir a ver una película mañana con mis amigos.",
+          "fr": "J'irai au cinéma demain avec mes amis.",
+          "it": "Domani andremo a vedere un film con i nostri amici.",
+          "pt": "Amanhã vou ver o filme com os meus amigos."
+        }
+      },
+      {
+        "source": "ko",
+        "text": "바쁜 일상 속에서도 가끔은 하늘을 올려다보는 여유가 필요하곤 하죠.",
+        "translations": {
+          "de": "Manchmal braucht man Zeit, um in die Luft zu schauen, selbst wenn man viel zu tun hat.",
+          "en": "Even in our busy lives, we sometimes need to be able to look up at the sky.",
+          "es": "En una vida muy ocupada, a veces se necesita un tiempo para mirar hacia arriba.",
+          "fr": "Et même dans la vie de tous les jours, vous avez besoin de temps à autre de regarder en l'air."
         }
       }
     ]
