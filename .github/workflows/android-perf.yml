@@ -31,7 +31,7 @@ jobs:
         device: [ pv-android ]
         include:
           - device: pv-android
-            procPerformanceThresholdSec: 1.5
+            procPerformanceThresholdSec: 1.0
 
     steps:
       - uses: actions/checkout@v3
@@ -102,4 +102,4 @@ jobs:
         run: ./gradlew assembleEnfrDebugAndroidTest -DtestBuildType=perf --info
 
       - name: Run tests
-        run: ./gradlew connectedEnfrDebugAndroidTest --info -Pandroid.testInstrumentationRunnerArguments.class=ai.picovoice.zebra.testapp.PerformanceTest
+        run: ./gradlew connectedEnfrDebugAndroidTest -DtestBuildType=perf --info -Pandroid.testInstrumentationRunnerArguments.class=ai.picovoice.zebra.testapp.PerformanceTest
