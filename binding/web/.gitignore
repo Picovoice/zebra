@@ -4,3 +4,4 @@ src/lib/*
 cypress/fixtures/*
 test/params/zebra_params*.js
 test/params/zebra_params*.pv
+test/params/zebra_params*.txt

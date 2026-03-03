@@ -73,8 +73,8 @@ android {
         testBuildType("release")
     }
 
-    tasks.register('copyParams', Copy) {
-        from("$projectDir/../../../../lib/common/")
+    tasks.register('copyParam', Copy) {
+        from("$projectDir/../../../../lib/common/zebra_params_en_fr.pv")
         into("$projectDir/src/main/assets/models")
     }
 

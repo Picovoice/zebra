@@ -34,12 +34,13 @@ try {
       join(paramsSourceDirectory, file),
       join(testDirectory, 'params', file)
     );
-
-    const outName = file.replace(".pv", ".txt")
-    const fileBuffer = fs.readFileSync(`./test/params/${file}`);
-    const base64 = fileBuffer.toString("base64");
-    fs.writeFileSync(`${fixturesDirectory}/params/${outName}`, base64);
   });
+
+  const enfrParams = "zebra_params_en_fr.pv";
+  const outName = enfrParams.replace(".pv", ".txt")
+  const fileBuffer = fs.readFileSync(`./test/params/${enfrParams}`);
+  const base64 = fileBuffer.toString("base64");
+  fs.writeFileSync(`./test/params/${outName}`, base64);
 
   fs.mkdirSync(join(fixturesDirectory, 'resources', '.test'), { recursive: true });
   fs.copyFileSync(join(sourceDirectory, 'test_data.json'), join(fixturesDirectory, 'resources', '.test', 'test_data.json'));

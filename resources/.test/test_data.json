@@ -64,12 +64,12 @@
       },
       {
         "source": "ko",
-        "text": "바쁜 일상 속에서도 가끔은 하늘을 올려다보는 여유가 필요하곤 하죠.",
+        "text": "기차 창밖으로 보이는 풍경이 너무 예뻐서 계속 사진을 찍었어요.",
         "translations": {
-          "de": "Manchmal braucht man Zeit, um in die Luft zu schauen, selbst wenn man viel zu tun hat.",
-          "en": "Even in our busy lives, we sometimes need to be able to look up at the sky.",
-          "es": "En una vida muy ocupada, a veces se necesita un tiempo para mirar hacia arriba.",
-          "fr": "Et même dans la vie de tous les jours, vous avez besoin de temps à autre de regarder en l'air."
+          "de": "Die Landschaft, die ich aus dem Zugfenster sah, war so schön, dass ich ständig Fotos machte.",
+          "en": "The view from the train window was so beautiful that I kept taking pictures.",
+          "es": "El paisaje que veo por la ventana del tren es tan hermoso que he estado fotografiando todo el tiempo.",
+          "fr": "Le paysage était si beau par la fenêtre du train que j'ai continué à prendre des photos."
         }
       }
     ]
