@@ -80,7 +80,7 @@ jobs:
       run: ./gradlew assembleEnfrDebugAndroidTest --info
 
     - name: Run tests
-      run: ./gradlew connectedAndroidTest --info -Pandroid.testInstrumentationRunnerArguments.class=ai.picovoice.zebra.testapp.StandardTests,ai.picovoice.zebra.testapp.TranslateTests
+      run: ./gradlew connectedEnfrDebugAndroidTest --info -Pandroid.testInstrumentationRunnerArguments.class=ai.picovoice.zebra.testapp.StandardTests,ai.picovoice.zebra.testapp.TranslateTests
 
   test-integ:
     name: Run Android Integ Tests
@@ -136,10 +136,10 @@ jobs:
       run: chmod +x gradlew
 
     - name: Build app
-      run: ./gradlew assembleEnfrRelease --info
+      run: ./gradlew assembleEnfrDebug --info
 
     - name: Build androidTest
-      run: ./gradlew assembleEnfrDebugAndroidTest --info
+      run: ./gradlew assembleEnfrDebug AndroidTest -DtestBuildType=integ --info
 
     - name: Run tests
-      run: ./gradlew connectedAndroidTest --info -Pandroid.testInstrumentationRunnerArguments.class=ai.picovoice.zebra.testapp.IntegrationTest
+      run: ./gradlew connectedEnfrDebugAndroidTest --info -Pandroid.testInstrumentationRunnerArguments.class=ai.picovoice.zebra.testapp.IntegrationTest

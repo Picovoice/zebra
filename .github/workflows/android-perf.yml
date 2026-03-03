@@ -24,7 +24,7 @@ defaults:
 jobs:
   perf:
     name: Run Android Perf Tests
-    runs-on: ${{ matrix.device }}
+    runs-on: pv-android
 
     strategy:
       matrix:
@@ -102,4 +102,4 @@ jobs:
         run: ./gradlew assembleEnfrDebugAndroidTest -DtestBuildType=perf --info
 
       - name: Run tests
-        run: ./gradlew connectedAndroidTest --info -Pandroid.testInstrumentationRunnerArguments.class=ai.picovoice.zebra.testapp.PerformanceTest
+        run: ./gradlew connectedEnfrDebugAndroidTest --info -Pandroid.testInstrumentationRunnerArguments.class=ai.picovoice.zebra.testapp.PerformanceTest
