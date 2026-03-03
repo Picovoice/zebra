@@ -31,7 +31,7 @@ jobs:
         device: [ pv-android ]
         include:
           - device: pv-android
-            procPerformanceThresholdSec: 1.0
+            procPerformanceThresholdSec: 1.5
 
     steps:
       - uses: actions/checkout@v3

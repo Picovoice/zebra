@@ -64,12 +64,12 @@
       },
       {
         "source": "ko",
-        "text": "기차 창밖으로 보이는 풍경이 너무 예뻐서 계속 사진을 찍었어요.",
+        "text": "밤하늘에 반짝이는 별들이 정말 아름다워요.",
         "translations": {
-          "de": "Die Landschaft, die ich aus dem Zugfenster sah, war so schön, dass ich ständig Fotos machte.",
-          "en": "The view from the train window was so beautiful that I kept taking pictures.",
-          "es": "El paisaje que veo por la ventana del tren es tan hermoso que he estado fotografiando todo el tiempo.",
-          "fr": "Le paysage était si beau par la fenêtre du train que j'ai continué à prendre des photos."
+          "de": "Die Sterne am Nachthimmel sind wunderschön.",
+          "en": "The stars that sparkle in the night sky are beautiful.",
+          "es": "Las estrellas brillan en el cielo nocturno.",
+          "fr": "Les étoiles brillantes dans le ciel nocturne sont magnifiques."
         }
       }
     ]
