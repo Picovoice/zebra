@@ -22,15 +22,15 @@ defaults:
     working-directory: binding/android/ZebraTestApp
 
 jobs:
-  build:
-    name: Run Android Speed Tests on BrowserStack
-    runs-on: ubuntu-latest
+  perf:
+    name: Run Android Perf Tests
+    runs-on: ${{ matrix.device }}
 
     strategy:
       matrix:
-        device: [ android-perf ]
+        device: [ pv-android ]
         include:
-          - device: android-perf
+          - device: pv-android
             procPerformanceThresholdSec: 1.0
 
     steps:
@@ -43,7 +43,7 @@ jobs:
       - run:
           pip3 install requests
 
-  ############## REMOVE AFTER RELEASE ##########################
+      ############## REMOVE AFTER RELEASE ##########################
       - name: Set up Java 11
         uses: actions/setup-java@v3
         with:
@@ -53,13 +53,19 @@ jobs:
       - name: Build binding
         run: ./gradlew assembleRelease --info
         working-directory: binding/android/Zebra
-  ############## REMOVE AFTER RELEASE ##########################
+      ############## REMOVE AFTER RELEASE ##########################
 
-      - name: set up JDK 17
+      - name: Set up Java 21
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
+          java-version: 21
           distribution: 'temurin'
+
+      - name: Uninstall previous app
+        run: ~/Android/Sdk/platform-tools/adb shell pm uninstall ai.picovoice.zebra.testapp || true
+
+      - name: Uninstall previous tests
+        run: ~/Android/Sdk/platform-tools/adb shell pm uninstall ai.picovoice.zebra.testapp.test || true
 
       - name: Copy test_resources
         run: ./copy_test_resources.sh
@@ -83,9 +89,6 @@ jobs:
       - name: Setup Android keystore file
         run: echo "${{secrets.ANDROID_RELEASE_KEYSTORE_FILE_B64}}" | base64 -d > picovoice.jks
 
-      - name: Inject Init Performance Threshold
-        run: echo initPerformanceThresholdSec="${{ matrix.initPerformanceThresholdSec }}" >> local.properties
-
       - name: Inject Proc Performance Threshold
         run: echo procPerformanceThresholdSec="${{ matrix.procPerformanceThresholdSec }}" >> local.properties
 
@@ -93,17 +96,10 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build app
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleEnfrDebug --info
 
       - name: Build androidTest
-        run: ./gradlew assembleAndroidTest -DtestBuildType=perf
+        run: ./gradlew assembleEnfrDebugAndroidTest -DtestBuildType=perf --info
 
-      - name: Run tests on BrowserStack
-        run: python3 ../../../script/automation/browserstack.py
-          --type espresso
-          --username "${{secrets.BROWSERSTACK_USERNAME}}"
-          --access_key "${{secrets.BROWSERSTACK_ACCESS_KEY}}"
-          --project_name "Zebra-Android-Performance"
-          --devices "${{ matrix.device }}"
-          --app_path "zebra-test-app/build/outputs/apk/debug/zebra-test-app-debug.apk"
-          --test_path "zebra-test-app/build/outputs/apk/androidTest/debug/zebra-test-app-debug-androidTest.apk"
+      - name: Run tests
+        run: ./gradlew connectedAndroidTest --info -Pandroid.testInstrumentationRunnerArguments.class=ai.picovoice.zebra.testapp.PerformanceTest

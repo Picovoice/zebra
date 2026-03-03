@@ -3,12 +3,12 @@
     "translation_tests": [
       {
         "source": "de",
-        "text": "Ich habe heute Morgen einen sehr großen Kaffee in Berlin getrunken.",
+        "text": "Ich hoffe, dass das Wetter morgen endlich wieder besser wird.",
         "translations": {
-          "en": "I had a very big coffee in Berlin this morning.",
-          "es": "Bebí un café muy grande en Berlín esta mañana.",
-          "fr": "J'ai bu un très grand café à Berlin ce matin.",
-          "it": "Stamattina ho bevuto un grosso caffè a Berlino."
+          "en": "I hope the weather will finally get better tomorrow.",
+          "es": "Espero que el clima finalmente mejore mañana.",
+          "fr": "J'espère que la météo va enfin s'améliorer demain.",
+          "it": "Spero che domani il tempo possa finalmente migliorare."
         }
       },
       {
@@ -23,12 +23,12 @@
       },
       {
         "source": "es",
-        "text": "El fuego fue tan intenso que los bomberos no pudieron entrar.",
+        "text": "La vida es como un libro, cada día es una página.",
         "translations": {
-          "de": "Das Feuer war so heftig, dass Feuerwehrleute nicht reinkamen.",
-          "en": "The fire was so intense that the firemen couldn't get in.",
-          "fr": "Le feu était si intense que les pompiers n'ont pas pu entrer.",
-          "it": "Il fuoco è stato così intenso che i pompieri non sono riusciti a entrare."
+          "de": "Das Leben ist wie ein Buch, jeder Tag ist eine Seite.",
+          "en": "Life is like a book, every day is a page.",
+          "fr": "La vie est comme un livre, chaque jour est une page.",
+          "it": "La vita è come un libro, ogni giorno è una pagina."
         }
       },
       {

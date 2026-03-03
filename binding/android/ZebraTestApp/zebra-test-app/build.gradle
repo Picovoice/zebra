@@ -73,9 +73,47 @@ android {
         testBuildType("release")
     }
 
-    tasks.register('copyParams', Copy) {
-        from("$projectDir/../../../../lib/common/zebra_params_en_fr.pv")
-        into("$projectDir/src/main/assets/models")
+    def testDataFile = file('../../../../resources/.test/test_data.json')
+    def parsedJson = new groovy.json.JsonSlurper().parseText(testDataFile.text)
+    def models = []
+    parsedJson.tests.translation_tests.each { test ->
+        def source = test.source
+        test.translations.each { target, _ ->
+            def flavor = "${source}${target}"
+            models.add(flavor)
+        }
+    }
+
+    flavorDimensions "model"
+    productFlavors {
+        enfr {
+            getIsDefault().set(true)
+        }
+
+        models.each { model ->
+            "$model" {
+                applicationIdSuffix ".$model"
+            }
+        }
+
+        all { flavor ->
+            delete fileTree("$projectDir/src/main/assets") {
+                exclude '**/.gitkeep'
+            }
+
+            def source = flavor.name.substring(0, 2)
+            def target = flavor.name.substring(2)
+            def modelName = "zebra_params_" + source + "_" + target + ".pv"
+            def modelFile = file("$projectDir/../../../../lib/common/$modelName")
+
+            if (modelFile.exists()) {
+                task("${flavor.name}CopyParams", type: Copy) {
+                    from(modelFile.parent)
+                    include(modelName)
+                    into("$projectDir/src/${flavor.name}/assets/models")
+                }
+            }
+        }
     }
 
     sourceSets {
@@ -125,10 +163,11 @@ dependencies {
 }
 
 afterEvaluate {
-    tasks."mergeDebugAssets".dependsOn "copyParams"
-    tasks."mergeReleaseAssets".dependsOn "copyParams"
-    tasks."generateDebugLintReportModel".dependsOn "copyParams"
-    tasks."generateReleaseLintVitalReportModel".dependsOn "copyParams"
-    tasks."lintAnalyzeDebug".dependsOn "copyParams"
-    tasks."lintVitalAnalyzeRelease".dependsOn "copyParams"
+    android.productFlavors.all {
+        flavor ->
+            tasks."merge${flavor.name.capitalize()}DebugAssets".dependsOn "${flavor.name}CopyParams"
+            tasks."merge${flavor.name.capitalize()}ReleaseAssets".dependsOn "${flavor.name}CopyParams"
+            tasks."generate${flavor.name.capitalize()}ReleaseLintVitalReportModel".dependsOn "${flavor.name}CopyParams"
+            tasks."lintVitalAnalyze${flavor.name.capitalize()}Release".dependsOn "${flavor.name}CopyParams"
+    }
 }
