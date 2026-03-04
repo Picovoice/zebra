@@ -15,7 +15,7 @@ on:
 
 jobs:
   upload-demo:
-    runs-on: ubuntu-latest
+    runs-on: pv-android
     defaults:
       run:
         working-directory: demo/android/ZebraDemo
@@ -53,7 +53,7 @@ jobs:
       run: echo "${{secrets.ANDROID_RELEASE_KEYSTORE_FILE_B64}}" | base64 -d > picovoice.jks
 
     - name: Build
-      run: ./gradlew bundleEnfrRelease --info
+      run: ./gradlew bundleEnfrRelease
 
     - name: Upload to Google Play
       run: fastlane supply --json_key ./service-account.json --package_name ai.picovoice.zebrademo.enfr --aab zebra-demo-app/build/outputs/bundle/enfrRelease/zebra-demo-app-enfr-release.aab --track internal --skip_upload_metadata --skip_upload_images --skip_upload_screenshots --release_status draft
