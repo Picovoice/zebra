@@ -113,8 +113,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-//     implementation 'ai.picovoice:zebra-android:1.0.0'
-    implementation files('../../../../binding/android/Zebra/zebra/build/outputs/aar/zebra-release.aar')
+    implementation 'ai.picovoice:zebra-android:1.0.0'
 }
 
 afterEvaluate {
