@@ -28,6 +28,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Clean swiftpm
+        run: rm -rf ~/Library/Developer/Xcode/DerivedData/ZebraAppTest*
+
       - name: Copy test_resources
         run: ./copy_test_resources.sh
 
