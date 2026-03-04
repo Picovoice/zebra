@@ -2,10 +2,74 @@
   "tests": {
     "translation_tests": [
       {
+        "source": "de",
+        "text": "Ich hoffe, dass das Wetter morgen endlich wieder besser wird.",
+        "translations": {
+          "en": "I hope the weather will finally get better tomorrow.",
+          "es": "Espero que el clima finalmente mejore mañana.",
+          "fr": "J'espère que la météo va enfin s'améliorer demain.",
+          "it": "Spero che domani il tempo possa finalmente migliorare."
+        }
+      },
+      {
         "source": "en",
         "text": "I've seen things you people would not believe.",
         "translations": {
-          "fr": "J'ai vu des choses que vous ne croiriez pas."
+          "de": "Ich habe Dinge gesehen, die ihr Leute nicht glauben würdet.",
+          "es": "He visto cosas que ustedes no creerían.",
+          "fr": "J'ai vu des choses que vous ne croiriez pas.",
+          "it": "Ho visto cose che voi non credereste."
+        }
+      },
+      {
+        "source": "es",
+        "text": "La vida es como un libro, cada día es una página.",
+        "translations": {
+          "de": "Das Leben ist wie ein Buch, jeder Tag ist eine Seite.",
+          "en": "Life is like a book, every day is a page.",
+          "fr": "La vie est comme un livre, chaque jour est une page.",
+          "it": "La vita è come un libro, ogni giorno è una pagina."
+        }
+      },
+      {
+        "source": "fr",
+        "text": "Il est très important de manger des fruits et des légumes chaque jour.",
+        "translations": {
+          "de": "Es ist sehr wichtig, Obst und Gemüse jeden Tag zu essen.",
+          "en": "It is very important to eat fruits and vegetables every day.",
+          "es": "Es muy importante comer frutas y verduras cada día."
+        }
+      },
+      {
+        "source": "it",
+        "text": "Ogni giorno mi sveglio presto e faccio una lunga passeggiata.",
+        "translations": {
+          "de": "Ich werde jeden Tag früh aufwachen und einen langen Spaziergang machen.",
+          "en": "Every day I wake up early and take a long walk.",
+          "es": "Cada día me despierto temprano y doy un largo paseo.",
+          "fr": "Chaque jour, je me réveille tôt et je fais une longue promenade."
+        }
+      },
+      {
+        "source": "ja",
+        "text": "明日、友達と一緒に映画を見に行く予定です。",
+        "translations": {
+          "de": "Ich werde morgen mit meinen Freunden ins Kino gehen.",
+          "en": "I plan to go to the movies with my friends tomorrow.",
+          "es": "Voy a ir a ver una película mañana con mis amigos.",
+          "fr": "J'irai au cinéma demain avec mes amis.",
+          "it": "Domani andremo a vedere un film con i nostri amici.",
+          "pt": "Amanhã vou ver o filme com os meus amigos."
+        }
+      },
+      {
+        "source": "ko",
+        "text": "밤하늘에 반짝이는 별들이 정말 아름다워요.",
+        "translations": {
+          "de": "Die Sterne am Nachthimmel sind wunderschön.",
+          "en": "The stars that sparkle in the night sky are beautiful.",
+          "es": "Las estrellas brillan en el cielo nocturno.",
+          "fr": "Les étoiles brillantes dans le ciel nocturne sont magnifiques."
         }
       }
     ]

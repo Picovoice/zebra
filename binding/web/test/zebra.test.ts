@@ -71,7 +71,7 @@ const runTranslationTest = async (
     const zebra = await instance.create(accessKey, model, device);
 
     const res = await zebra.translate(text);
-    expect(res.replace("<pad> ", "").replace("</s>", "")).to.eq(translation);
+    expect(res).to.eq(translation);
 
     if (zebra instanceof ZebraWorker) {
       zebra.terminate();
@@ -156,7 +156,8 @@ describe('Zebra Binding', function () {
     });
 
     it(`should be able to init with base64 (${instanceString})`, () => {
-      cy.loadTextFile("params/zebra_params_en_fr.txt").then(async b64params => {
+      cy.wrap(fetch("/test/params/zebra_params_en_fr.txt")).then(async (response: any) => {
+        const b64params = await response.text();
         await runInitTest(instance, {
           model: { base64: b64params, forceWrite: true },
         });
