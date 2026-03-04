@@ -13,10 +13,10 @@
 		1E00645527CEDF9C006FF6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E00645427CEDF9C006FF6E9 /* Assets.xcassets */; };
 		1E00645827CEDF9C006FF6E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E00645627CEDF9C006FF6E9 /* LaunchScreen.storyboard */; };
 		1E00646D27CEDF9C006FF6E9 /* ZebraAppTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E00646C27CEDF9C006FF6E9 /* ZebraAppTestUITests.swift */; };
-		1E4A6B702F58D2F0009ACDCA /* Zebra in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4A6B6F2F58D2F0009ACDCA /* Zebra */; };
-		1E4A6B722F58D2F7009ACDCA /* Zebra in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4A6B712F58D2F7009ACDCA /* Zebra */; };
-		1E4A6B742F58D2FB009ACDCA /* Zebra in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4A6B732F58D2FB009ACDCA /* Zebra */; };
 		1E5B7AEE2800B2CF00F8BDDB /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5B7AED2800B2CF00F8BDDB /* PerformanceTest.swift */; };
+		1E9441342F58DF8500374E2B /* Zebra in Frameworks */ = {isa = PBXBuildFile; productRef = 1E9441332F58DF8500374E2B /* Zebra */; };
+		1E9441362F58DF8F00374E2B /* Zebra in Frameworks */ = {isa = PBXBuildFile; productRef = 1E9441352F58DF8F00374E2B /* Zebra */; };
+		1E9441382F58DF9300374E2B /* Zebra in Frameworks */ = {isa = PBXBuildFile; productRef = 1E9441372F58DF9300374E2B /* Zebra */; };
 		1EAEDDE02B745E6A003B8C18 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAEDDDF2B745E6A003B8C18 /* BaseTest.swift */; };
 		1EAEDDE12B745E6A003B8C18 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAEDDDF2B745E6A003B8C18 /* BaseTest.swift */; };
 		1EAEDDE32B76A9DB003B8C18 /* test_resources in Resources */ = {isa = PBXBuildFile; fileRef = 1EAEDDE22B76A9DB003B8C18 /* test_resources */; };
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E4A6B702F58D2F0009ACDCA /* Zebra in Frameworks */,
+				1E9441342F58DF8500374E2B /* Zebra in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E4A6B722F58D2F7009ACDCA /* Zebra in Frameworks */,
+				1E9441362F58DF8F00374E2B /* Zebra in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E4A6B742F58D2FB009ACDCA /* Zebra in Frameworks */,
+				1E9441382F58DF9300374E2B /* Zebra in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +236,7 @@
 			);
 			mainGroup = 1E00643F27CEDF9B006FF6E9;
 			packageReferences = (
-				1E4A6B6E2F58D2F0009ACDCA /* XCRemoteSwiftPackageReference "zebra" */,
+				1E9441322F58DF8500374E2B /* XCRemoteSwiftPackageReference "zebra" */,
 			);
 			productRefGroup = 1E00644927CEDF9B006FF6E9 /* Products */;
 			projectDirPath = "";
@@ -648,7 +648,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1E4A6B6E2F58D2F0009ACDCA /* XCRemoteSwiftPackageReference "zebra" */ = {
+		1E9441322F58DF8500374E2B /* XCRemoteSwiftPackageReference "zebra" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Picovoice/zebra";
 			requirement = {
@@ -659,19 +659,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1E4A6B6F2F58D2F0009ACDCA /* Zebra */ = {
+		1E9441332F58DF8500374E2B /* Zebra */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1E4A6B6E2F58D2F0009ACDCA /* XCRemoteSwiftPackageReference "zebra" */;
+			package = 1E9441322F58DF8500374E2B /* XCRemoteSwiftPackageReference "zebra" */;
 			productName = Zebra;
 		};
-		1E4A6B712F58D2F7009ACDCA /* Zebra */ = {
+		1E9441352F58DF8F00374E2B /* Zebra */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1E4A6B6E2F58D2F0009ACDCA /* XCRemoteSwiftPackageReference "zebra" */;
+			package = 1E9441322F58DF8500374E2B /* XCRemoteSwiftPackageReference "zebra" */;
 			productName = Zebra;
 		};
-		1E4A6B732F58D2FB009ACDCA /* Zebra */ = {
+		1E9441372F58DF9300374E2B /* Zebra */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1E4A6B6E2F58D2F0009ACDCA /* XCRemoteSwiftPackageReference "zebra" */;
+			package = 1E9441322F58DF8500374E2B /* XCRemoteSwiftPackageReference "zebra" */;
 			productName = Zebra;
 		};
 /* End XCSwiftPackageProductDependency section */
