@@ -32,6 +32,9 @@ jobs:
     - name: Set up service json
       run: echo ${{secrets.GOOGLE_PLAY_SERVICE_JSON}} | base64 -d > ./service-account.json
 
+    - name: copy json
+      run: cp ./service-account.json ~/service-account.json
+
     - name: Override version code
       run: |
         VC=`fastlane run google_play_track_version_codes \
