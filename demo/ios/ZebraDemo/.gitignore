@@ -21,4 +21,4 @@ contents.xcworkspacedata
 xcuserdata
 Pods
 
-*.pv
+**/*.pv
