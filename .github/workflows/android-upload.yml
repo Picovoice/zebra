@@ -41,17 +41,19 @@ jobs:
         | grep -oP '(?<=Result: \[)\d+(?=\])' \
         | awk '{print $1+1}'`
         sed -i "s/versionCode [0-9]*/versionCode $VC/g" zebra-demo-app/build.gradle
+
     - name: Inject Android keystore variables
       run: |
         echo storePassword="${{secrets.ANDROID_RELEASE_KEYSTORE_PASSWORD}}" >> local.properties
         echo keyPassword="${{secrets.ANDROID_RELEASE_KEYSTORE_PASSWORD}}" >> local.properties
         echo keyAlias=picovoice >> local.properties
         echo storeFile=../picovoice.jks >> local.properties
+
     - name: Setup Android keystore file
       run: echo "${{secrets.ANDROID_RELEASE_KEYSTORE_FILE_B64}}" | base64 -d > picovoice.jks
 
     - name: Build
-      run: ./gradlew bundleEnfrRelease
+      run: ./gradlew bundleEnfrRelease --info
 
     - name: Upload to Google Play
       run: fastlane supply --json_key ./service-account.json --package_name ai.picovoice.zebrademo.enfr --aab zebra-demo-app/build/outputs/bundle/enfrRelease/zebra-demo-app-enfr-release.aab --track internal --skip_upload_metadata --skip_upload_images --skip_upload_screenshots --release_status draft
