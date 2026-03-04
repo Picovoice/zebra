@@ -35,11 +35,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Clean swiftpm
-        run: >
-          rm -f ZebraAppTest.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved &&
-          rm -rf ~/Library/Caches/org.swift.swiftpm/repositories/zebra*
-
       - name: Copy test_resources
         run: ./copy_test_resources.sh
 
