@@ -27,8 +27,8 @@ android {
         applicationId "ai.picovoice.zebrademo"
         minSdkVersion 21
         targetSdkVersion defaultTargetSdkVersion
-        versionCode 2
-        versionName "2.0"
+        versionCode 1
+        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -113,8 +113,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-//     implementation 'ai.picovoice:zebra-android:1.0.0'
-    implementation files('../../../../binding/android/Zebra/zebra/build/outputs/aar/zebra-release.aar')
+    implementation 'ai.picovoice:zebra-android:1.0.0'
 }
 
 afterEvaluate {
