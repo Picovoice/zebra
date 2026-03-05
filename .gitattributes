@@ -1,0 +1,10 @@
+demo/** linguist-detectable=false
+lib/** linguist-detectable=false
+res/** linguist-detectable=false
+
+binding/android/** linguist-detectable=false
+binding/ios/ZebraAppTest/** linguist-detectable=false
+binding/web/** linguist-detectable=false
+binding/web/src/zebra.ts linguist-detectable=true
+
+*.py linguist-detectable=true

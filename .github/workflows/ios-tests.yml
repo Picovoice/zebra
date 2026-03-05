@@ -1,0 +1,55 @@
+name: iOS Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/ios-tests.yml'
+      - 'binding/ios/ZebraAppTest/**'
+      - 'resources/.test/**'
+  pull_request:
+    branches: [ main, 'v[0-9]+.[0-9]+' ]
+    paths:
+      - '.github/workflows/ios-tests.yml'
+      - 'binding/ios/ZebraAppTest/**'
+      - 'resources/.test/**'
+
+defaults:
+  run:
+    working-directory: binding/ios/ZebraAppTest
+
+jobs:
+  build:
+    name: Run iOS Tests
+    runs-on: pv-ios
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Copy test_resources
+        run: ./copy_test_resources.sh
+
+      - name: Inject AccessKey
+        run: sed -i '.bak' 's:{TESTING_ACCESS_KEY_HERE}:${{secrets.PV_VALID_ACCESS_KEY}}:'
+          ZebraAppTestUITests/BaseTest.swift
+
+      - name: Inject Device
+        run: sed -i '.bak' 's:{TESTING_DEVICE_HERE}:best:'
+          ZebraAppTestUITests/BaseTest.swift
+
+      - name: XCode Build
+        run: xcrun xcodebuild build-for-testing
+          -configuration Debug
+          -project ZebraAppTest.xcodeproj
+          -sdk iphoneos
+          -scheme ZebraAppTest
+          -derivedDataPath ddp
+          CODE_SIGNING_ALLOWED=NO
+
+      - name: Run Tests on Simulator
+        run: xcrun xcodebuild test
+          -project ZebraAppTest.xcodeproj
+          -scheme ZebraAppTest
+          -destination 'platform=iOS Simulator,name=iPhone 13,OS=16.4'

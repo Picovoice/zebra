@@ -1,0 +1,7 @@
+framework module PvZebra {
+  umbrella header "PvZebra.h"
+  header "pv_zebra.h"
+  header "picovoice.h"
+  export *
+  module * {export *}
+}

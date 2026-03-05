@@ -1,0 +1,149 @@
+import groovy.json.JsonSlurper
+
+apply plugin: 'com.android.application'
+
+Properties properties = new Properties()
+if (rootProject.file("local.properties").exists()) {
+    properties.load(rootProject.file("local.properties").newDataInputStream())
+    if (project.hasProperty("storePassword")) {
+        properties.put("storePassword", project.getProperty("storePassword"))
+    }
+    if (project.hasProperty("storeFile")) {
+        properties.put("storeFile", project.getProperty("storeFile"))
+    }
+    if (project.hasProperty("keyAlias")) {
+        properties.put("keyAlias", project.getProperty("keyAlias"))
+    }
+    if (project.hasProperty("keyPassword")) {
+        properties.put("keyPassword", project.getProperty("keyPassword"))
+    }
+}
+
+android {
+    def agpVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION
+    compileSdk defaultTargetSdkVersion
+
+    defaultConfig {
+        applicationId "ai.picovoice.zebrademo"
+        minSdkVersion 21
+        targetSdkVersion defaultTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            storePassword properties.getProperty("storePassword")
+            storeFile file(properties.getProperty("storeFile", ".dummy.jks"))
+            keyAlias properties.getProperty("keyAlias")
+            keyPassword properties.getProperty("keyPassword")
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    def testDataFile = file('../../../../resources/.test/test_data.json')
+    def parsedJson = new JsonSlurper().parseText(testDataFile.text)
+    def models = []
+    parsedJson.tests.translation_tests.each { test ->
+        def source = test.source
+        test.translations.each { target, _ ->
+            def flavor = "${source}${target}"
+            models.add(flavor)
+        }
+    }
+
+    flavorDimensions "model"
+    productFlavors {
+        if (agpVersion.tokenize('.')[0].toInteger() >= 7) {
+            enfr {
+                getIsDefault().set(true)
+            }
+        }
+
+        models.each { model ->
+            "$model" {
+                applicationIdSuffix ".$model"
+            }
+        }
+
+        all { flavor ->
+            delete fileTree("$projectDir/src/main/assets") {
+                exclude '**/.gitkeep'
+            }
+
+            def source = flavor.name.substring(0, 2)
+            def target = flavor.name.substring(2)
+            def modelName = "zebra_params_" + source + "_" + target + ".pv"
+            def modelFile = file("$projectDir/../../../../lib/common/$modelName")
+
+            if (modelFile.exists()) {
+                task("${flavor.name}CopyParams", type: Copy) {
+                    from(modelFile.parent)
+                    include(modelName)
+                    into("$projectDir/src/${flavor.name}/assets/models")
+                }
+            }
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        abortOnError false
+    }
+    if (agpVersion.tokenize('.')[0].toInteger() >= 7) {
+        namespace 'ai.picovoice.zebrademo'
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'ai.picovoice:zebra-android:1.0.0'
+}
+
+afterEvaluate {
+    android.productFlavors.all {
+        flavor ->
+            tasks."merge${flavor.name.capitalize()}DebugAssets".dependsOn "${flavor.name}CopyParams"
+            tasks."merge${flavor.name.capitalize()}ReleaseAssets".dependsOn "${flavor.name}CopyParams"
+
+            def generateDebugLintReportModelTask = tasks.findByName(
+                    "generate${flavor.name.capitalize()}DebugLintReportModel")
+            if (generateDebugLintReportModelTask) {
+                generateDebugLintReportModelTask.dependsOn "${flavor.name}CopyParams"
+            }
+
+            def generateReleaseLintVitalReportModelTask = tasks.findByName(
+                    "generate${flavor.name.capitalize()}ReleaseLintVitalReportModel")
+            if (generateReleaseLintVitalReportModelTask) {
+                generateReleaseLintVitalReportModelTask.dependsOn "${flavor.name}CopyParams"
+            }
+
+            def lintAnalyzeDebugTask = tasks.findByName(
+                    "lintAnalyze${flavor.name.capitalize()}Debug")
+            if (lintAnalyzeDebugTask) {
+                lintAnalyzeDebugTask.dependsOn "${flavor.name}CopyParams"
+            }
+
+            def lintVitalAnalyzeReleaseTask = tasks.findByName(
+                    "lintVitalAnalyze${flavor.name.capitalize()}Release")
+            if (lintVitalAnalyzeReleaseTask) {
+                lintVitalAnalyzeReleaseTask.dependsOn "${flavor.name}CopyParams"
+            }
+    }
+}

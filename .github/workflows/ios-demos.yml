@@ -1,0 +1,36 @@
+name: iOS Demos
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'demo/ios/**'
+      - '.github/workflows/ios-demos.yml'
+      - '!demo/ios/README.md'
+  pull_request:
+    branches: [ main, 'v[0-9]+.[0-9]+' ]
+    paths:
+      - 'demo/ios/**'
+      - '.github/workflows/ios-demos.yml'
+      - '!demo/ios/README.md'
+
+jobs:
+  build-zebra-demo:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: demo/ios/ZebraDemo
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build English French
+        run: xcrun xcodebuild build
+          -configuration Debug
+          -project ZebraDemo.xcodeproj
+          -sdk iphoneos
+          -scheme enfrDemo
+          -derivedDataPath ddp
+          CODE_SIGNING_ALLOWED=NO

@@ -1,0 +1,71 @@
+name: iOS Performance
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'lib/ios/**'
+      - 'lib/common/**'
+      - '.github/workflows/ios-perf.yml'
+  pull_request:
+    branches: [ main, 'v[0-9]+.[0-9]+' ]
+    paths:
+      - 'lib/ios/**'
+      - 'lib/common/**'
+      - '.github/workflows/ios-perf.yml'
+
+defaults:
+  run:
+    working-directory: binding/ios/ZebraAppTest
+
+jobs:
+  build:
+    name: Run iOS Tests
+    runs-on: ${{ matrix.device }}
+
+    strategy:
+      matrix:
+        device: [ pv-ios ]
+        include:
+          - device: pv-ios
+            performanceThresholdSec: 1.0
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Copy test_resources
+        run: ./copy_test_resources.sh
+
+      - name: Inject AccessKey
+        run: sed -i '.bak' 's:{TESTING_ACCESS_KEY_HERE}:${{secrets.PV_VALID_ACCESS_KEY}}:'
+          ZebraAppTestUITests/BaseTest.swift
+
+      - name: Inject Device
+        run: sed -i '.bak' 's:{TESTING_DEVICE_HERE}:best:'
+          ZebraAppTestUITests/BaseTest.swift
+
+      - name: Inject Number of Iterations
+        run: sed -i '.bak' 's:{NUM_TEST_ITERATIONS}:30:'
+          PerformanceTest/PerformanceTest.swift
+
+      - name: Inject Performance Threshold
+        run: sed -i '.bak'
+          '1,/{PROC_PERFORMANCE_THRESHOLD_SEC}/s/{PROC_PERFORMANCE_THRESHOLD_SEC}/${{ matrix.performanceThresholdSec }}/'
+          PerformanceTest/PerformanceTest.swift
+
+      - name: XCode Build
+        run: xcrun xcodebuild build-for-testing
+          -configuration Debug
+          -project ZebraAppTest.xcodeproj
+          -sdk iphoneos
+          -scheme PerformanceTest
+          -derivedDataPath ddp
+          CODE_SIGNING_ALLOWED=NO
+
+      - name: Run Tests on Simulator
+        run: xcrun xcodebuild test
+          -project ZebraAppTest.xcodeproj
+          -scheme PerformanceTest
+          -destination 'platform=iOS Simulator,name=iPhone 13,OS=16.4'
