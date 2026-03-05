@@ -15,7 +15,7 @@ on:
 
 jobs:
   upload-demo:
-    runs-on: pv-android
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: demo/android/ZebraDemo
@@ -31,9 +31,6 @@ jobs:
 
     - name: Set up service json
       run: echo ${{secrets.GOOGLE_PLAY_SERVICE_JSON}} | base64 -d > ./service-account.json
-
-    - name: copy json
-      run: cp ./service-account.json ~/service-account.json
 
     - name: Override version code
       run: |
