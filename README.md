@@ -27,7 +27,6 @@ Zebra is a lightweight, on-device neural machine translation engine.
     - [Web](#web-demos)
   - [SDKs](#sdks)
     - [Python](#python)
-    - [C](#c)
     - [Android](#android)
     - [iOS](#ios)
     - [Web](#web)
@@ -50,7 +49,7 @@ zebra_demo --access_key ${ACCESS_KEY} --model_path ${MODEL_PATH} --text ${TEXT}
 ```
 
 Replace `${ACCESS_KEY}` with yours obtained from Picovoice Console, `${MODEL_PATH}` with
-a supported translation model located [here](../../lib/common/) and `${TEXT}` with the text to translate.
+a supported translation model located [here](lib/common/) and `${TEXT}` with the text to translate.
 
 For more information about Python demos go to [demo/python](./demo/python).
 
@@ -68,9 +67,9 @@ Run the demo:
 ./demo/c/build/zebra_demo -a ${ACCESS_KEY} -l ${LIBRARY_PATH} -m ${MODEL_PATH} -t ${TEXT}
 ```
 
-Replace `${LIBRARY_PATH}` with path to appropriate library available under [lib](../../lib),
+Replace `${LIBRARY_PATH}` with path to appropriate library available under [lib](lib),
 `${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/),
-`${MODEL_PATH}` with a supported translation model located [here](../../lib/common/) and
+`${MODEL_PATH}` with a supported translation model located [here](lib/common/) and
 `${TEXT}` with the text to translate.
 
 For more information about C demos go to [demo/c](demo/c).
@@ -142,15 +141,13 @@ print(zebra.translate('${TEXT}'))
 ```
 
 Replace `${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://console.picovoice.ai/), `${MODEL_PATH}` with
-a supported translation model located [here](../../lib/common/) and `${TEXT}` with the text to translate.
+a supported translation model located [here](lib/common/) and `${TEXT}` with the text to translate.
 
 Finally, when done be sure to explicitly release the resources:
 
 ```python
 zebra.delete()
 ```
-
-### C
 
 ### Android
 
@@ -180,7 +177,7 @@ try {
 ```
 
 Replace `${ACCESS_KEY}` with yours obtained from Picovoice Console, `${MODEL_FILE_PATH}` with a
-Zebra [model file](./lib/common) and `${TEXT}` with the text to be translated.
+Zebra [model file](lib/common) and `${TEXT}` with the text to be translated.
 
 ### iOS
 
@@ -251,3 +248,7 @@ Replace `${ACCESS_KEY}` with yours obtained from [Picovoice Console](https://con
 For more details, see the [Web SDK](./binding/web/).
 
 ## Releases
+
+### v1.0.0 - Mar 5, 2026
+
+- Initial release
