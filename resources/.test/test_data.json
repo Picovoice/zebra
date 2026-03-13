@@ -18,7 +18,8 @@
           "de": "Ich habe Dinge gesehen, die ihr Leute nicht glauben würdet.",
           "es": "He visto cosas que ustedes no creerían.",
           "fr": "J'ai vu des choses que vous ne croiriez pas.",
-          "it": "Ho visto cose che voi non credereste."
+          "it": "Ho visto cose che voi non credereste.",
+          "pt": "Já vi coisas em que vocês não acreditariam."
         }
       },
       {
@@ -37,7 +38,8 @@
         "translations": {
           "de": "Es ist sehr wichtig, Obst und Gemüse jeden Tag zu essen.",
           "en": "It is very important to eat fruits and vegetables every day.",
-          "es": "Es muy importante comer frutas y verduras cada día."
+          "es": "Es muy importante comer frutas y verduras cada día.",
+          "it": "È molto importante mangiare frutta e verdura ogni giorno."
         }
       },
       {
@@ -70,6 +72,14 @@
           "en": "The stars that sparkle in the night sky are beautiful.",
           "es": "Las estrellas brillan en el cielo nocturno.",
           "fr": "Les étoiles brillantes dans le ciel nocturne sont magnifiques."
+        }
+      },
+      {
+        "source": "pt",
+        "text": "Eu vi coisas que vocês não acreditariam.",
+        "translations": {
+          "de": "Ich habe Dinge gesehen, die ihr nicht glauben würdet.",
+          "en": "I saw things you wouldn't believe."
         }
       }
     ]
