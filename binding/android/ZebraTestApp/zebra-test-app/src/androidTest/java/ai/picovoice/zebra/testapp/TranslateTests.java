@@ -50,7 +50,7 @@ public class TranslateTests extends BaseTest {
     public String target;
 
     @Parameterized.Parameter(value = 3)
-    public String translation;
+    public ArrayList<String> translations;
 
     @Parameterized.Parameters(name = "{0} {2}")
     public static Collection<Object[]> initParameters() throws IOException {
@@ -69,8 +69,12 @@ public class TranslateTests extends BaseTest {
             Map<String, JsonElement> translations = testCase.get("translations").getAsJsonObject().asMap();
 
             for (Map.Entry<String, JsonElement> entry : translations.entrySet()) {
-                String translation = entry.getValue().getAsString();
-                parameters.add(new Object[]{source, text, entry.getKey(), translation});
+                ArrayList<String> translations = new ArrayList<>();
+                for (JsonElement elem : entry.getValue().getAsJsonArray()) {
+                    translations.add(elem.getAsString());
+                }
+
+                parameters.add(new Object[]{source, text, entry.getKey(), translations});
             }
         }
 
@@ -99,6 +103,6 @@ public class TranslateTests extends BaseTest {
     @Test
     public void testTranslate() throws ZebraException {
         String res = zebra.translate(text);
-        assertEquals(translation, res);
+        assertTrue(translations.contains(res));
     }
 }
