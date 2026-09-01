@@ -42,6 +42,16 @@ jobs:
       - name: Pre-build dependencies
         run: python -m pip install --upgrade pip
 
+# ************** REMOVE AFTER RELEASE ********************
+      - name: Build binding
+        run: |
+          pip install setuptools
+          pip install wheel
+          python setup.py sdist bdist_wheel
+          pip install dist/pvzebra-1.1.0-py3-none-any.whl
+        working-directory: binding/python
+# ********************************************************
+
       - name: Install dependencies
         run: pip install -r requirements.txt
 
@@ -72,6 +82,16 @@ jobs:
       - uses: actions/checkout@v3
         with:
           lfs: true
+
+# ************** REMOVE AFTER RELEASE ********************
+      - name: Build binding
+        run: |
+          pip install setuptools
+          pip install wheel
+          python setup.py sdist bdist_wheel
+          pip install dist/pvzebra-1.1.0-py3-none-any.whl
+        working-directory: binding/python
+# ********************************************************
 
       - name: Install dependencies
         run: pip3 install -r requirements.txt

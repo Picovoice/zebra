@@ -26,7 +26,7 @@ with open(os.path.join(os.path.dirname(__file__), "requirements.txt"), "r") as f
 
 setuptools.setup(
     name="pvzebrademo",
-    version="1.0.0",
+    version="1.1.0",
     author="Picovoice",
     author_email="hello@picovoice.ai",
     description="Zebra Translate demo",
