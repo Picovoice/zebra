@@ -66,15 +66,15 @@ public class TranslateTests extends BaseTest {
 
             String source = testCase.get("source").getAsString();
             String text = testCase.get("text").getAsString();
-            Map<String, JsonElement> translations = testCase.get("translations").getAsJsonObject().asMap();
+            Map<String, JsonElement> entries = testCase.get("translations").getAsJsonObject().asMap();
 
-            for (Map.Entry<String, JsonElement> entry : translations.entrySet()) {
-                ArrayList<String> translations = new ArrayList<>();
+            for (Map.Entry<String, JsonElement> entry : entries.entrySet()) {
+                ArrayList<String> temp = new ArrayList<>();
                 for (JsonElement elem : entry.getValue().getAsJsonArray()) {
-                    translations.add(elem.getAsString());
+                    temp.add(elem.getAsString());
                 }
 
-                parameters.add(new Object[]{source, text, entry.getKey(), translations});
+                parameters.add(new Object[]{source, text, entry.getKey(), temp});
             }
         }
 
