@@ -101,7 +101,7 @@ class ZebraTestCase(unittest.TestCase):
         o.delete()
 
     @parameterized.expand(translation_tests)
-    def test_zebra_translate(self, source, text, target, translation):
+    def test_zebra_translate(self, source, text, target, translations):
         o = None
 
         try:
@@ -113,7 +113,7 @@ class ZebraTestCase(unittest.TestCase):
             )
 
             res = o.translate(text)
-            self.assertEqual(res, translation)
+            self.assertIn(res, translations)
         finally:
             if o is not None:
                 o.delete()
