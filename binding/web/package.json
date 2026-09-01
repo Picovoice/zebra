@@ -3,7 +3,7 @@
   "description": "Zebra Text Translation engine for web browsers (via WebAssembly)",
   "author": "Picovoice Inc",
   "license": "Apache-2.0",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
     "zebra",
     "web",
