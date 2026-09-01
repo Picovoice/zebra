@@ -86,10 +86,10 @@ jobs:
 # ************** REMOVE AFTER RELEASE ********************
       - name: Build binding
         run: |
-          pip install setuptools
-          pip install wheel
+          pip3 install setuptools
+          pip3 install wheel
           python3 setup.py sdist bdist_wheel
-          pip install dist/pvzebra-1.1.0-py3-none-any.whl
+          pip3 install dist/pvzebra-1.1.0-py3-none-any.whl
         working-directory: binding/python
 # ********************************************************
 
