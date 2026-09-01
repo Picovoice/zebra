@@ -54,7 +54,7 @@ const runTranslationTest = async (
   source: string,
   text: string,
   target: string,
-  translation: string,
+  translations: Array<string>,
   params: {
     accessKey?: string;
     model?: PvModel;
@@ -71,7 +71,7 @@ const runTranslationTest = async (
     const zebra = await instance.create(accessKey, model, device);
 
     const res = await zebra.translate(text);
-    expect(res).to.eq(translation);
+    expect(translations).to.include(text);
 
     if (zebra instanceof ZebraWorker) {
       zebra.terminate();
@@ -213,7 +213,7 @@ describe('Zebra Binding', function () {
     });
 
     for (const testParam of testData.tests.translation_tests) {
-      for (const [target, translation] of Object.entries(testParam.translations)) {
+      for (const [target, translations] of Object.entries(testParam.translations)) {
         it(`should be able to translate (${testParam.source}_${target}) (${instanceString})`, () => {
           try {
             cy.wrap(null).then(async () => {
@@ -222,7 +222,7 @@ describe('Zebra Binding', function () {
                 testParam.source,
                 testParam.text,
                 target,
-                translation,
+                translations,
               );
             });
           } catch (e) {
