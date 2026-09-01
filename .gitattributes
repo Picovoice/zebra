@@ -1,10 +1,43 @@
 demo/** linguist-detectable=false
 lib/** linguist-detectable=false
 res/** linguist-detectable=false
-
 binding/android/** linguist-detectable=false
 binding/ios/ZebraAppTest/** linguist-detectable=false
 binding/web/** linguist-detectable=false
 binding/web/src/zebra.ts linguist-detectable=true
-
 *.py linguist-detectable=true
+lib/common/zebra_params_en_fr.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_ja_fr.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_ko_es.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_fr_es.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_fr_it.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_ko_fr.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_de_it.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_en_ja.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_es_en.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_pt_en.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_de_en.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_de_es.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_en_es.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_en_it.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_es_it.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_de_fr.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_en_de.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_es_de.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_es_fr.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_ja_de.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_ja_pt.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_ko_en.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_pt_de.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_en_ko.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_en_pt.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_fr_en.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_it_de.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_fr_de.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_it_en.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_ja_es.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_ko_de.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_it_es.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_it_fr.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_ja_en.pv filter=lfs diff=lfs merge=lfs -text
+lib/common/zebra_params_ja_it.pv filter=lfs diff=lfs merge=lfs -text

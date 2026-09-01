@@ -26,6 +26,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        lfs: true
 
     - name: Set up Java 21
       uses: actions/setup-java@v3
@@ -76,6 +78,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        lfs: true
 
     - name: Set up Java 21
       uses: actions/setup-java@v3

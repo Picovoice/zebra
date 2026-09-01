@@ -55,6 +55,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: recursive
+          lfs: true
 
       - name: Set up Python '3.10'
         uses: actions/setup-python@v4
@@ -122,6 +123,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: recursive
+          lfs: true
 
       - name: Create build directory
         run: cmake -G "${{ matrix.make_file }}" -B ./build

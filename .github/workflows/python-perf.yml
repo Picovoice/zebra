@@ -46,6 +46,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          lfs: true
 
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
@@ -89,6 +91,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          lfs: true
 
       - name: Machine state before
         working-directory: resources/.scripts
@@ -125,6 +129,8 @@ jobs:
             performance_threshold_sec: 0.4
     steps:
       - uses: actions/checkout@v3
+        with:
+          lfs: true
 
       - name: Pre-build dependencies
         run: python3 -m pip install --upgrade pip
