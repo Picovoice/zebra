@@ -20,7 +20,10 @@
           "fr": ["J'ai vu des choses que vous ne croiriez pas."],
           "it": ["Ho visto cose che voi non credereste."],
           "ja": ["あなた方が信じないものを 見てきた"],
-          "ko": ["나는 사람들이 믿지 않을 것들을 보았다."],
+          "ko": [
+            "나는 사람들이 믿지 않을 것들을 보았다.",
+            "나는 사람들이 믿지 않는 것을 보았다."
+          ],
           "pt": ["Já vi coisas em que vocês não acreditariam."]
         }
       },
