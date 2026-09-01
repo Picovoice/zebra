@@ -71,7 +71,7 @@ const runTranslationTest = async (
     const zebra = await instance.create(accessKey, model, device);
 
     const res = await zebra.translate(text);
-    expect(translations).to.include(text);
+    expect(translations).to.include(res);
 
     if (zebra instanceof ZebraWorker) {
       zebra.terminate();
