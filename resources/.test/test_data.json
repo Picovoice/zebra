@@ -19,6 +19,8 @@
           "es": "He visto cosas que ustedes no creerían.",
           "fr": "J'ai vu des choses que vous ne croiriez pas.",
           "it": "Ho visto cose che voi non credereste.",
+          "ja": "あなた方が信じないものを 見てきた",
+          "ko": "나는 사람들이 믿지 않을 것들을 보았다.",
           "pt": "Já vi coisas em que vocês não acreditariam."
         }
       },
@@ -58,7 +60,7 @@
         "translations": {
           "de": "Ich werde morgen mit meinen Freunden ins Kino gehen.",
           "en": "I plan to go to the movies with my friends tomorrow.",
-          "es": "Voy a ir a ver una película mañana con mis amigos.",
+          "es": "Voy a ir a ver una película con mis amigos mañana.",
           "fr": "J'irai au cinéma demain avec mes amis.",
           "it": "Domani andremo a vedere un film con i nostri amici.",
           "pt": "Amanhã vou ver o filme com os meus amigos."
