@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -236,7 +236,7 @@
 			);
 			mainGroup = 1E00643F27CEDF9B006FF6E9;
 			packageReferences = (
-				1E9441322F58DF8500374E2B /* XCRemoteSwiftPackageReference "zebra" */,
+				346107273047698700D518DD /* XCLocalSwiftPackageReference "../../../../zebra" */,
 			);
 			productRefGroup = 1E00644927CEDF9B006FF6E9 /* Products */;
 			projectDirPath = "";
@@ -646,6 +646,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		346107273047698700D518DD /* XCLocalSwiftPackageReference "../../../../zebra" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../../../zebra;
+		};
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		1E9441322F58DF8500374E2B /* XCRemoteSwiftPackageReference "zebra" */ = {

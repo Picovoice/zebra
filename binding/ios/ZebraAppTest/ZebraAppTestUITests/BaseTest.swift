@@ -23,7 +23,7 @@ struct TestsData: Decodable {
 struct TranslationTests: Decodable {
     var source: String
     var text: String
-    var translations: [String: String]
+    var translations: [String: [String]]
 }
 
 extension String {
