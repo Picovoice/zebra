@@ -236,7 +236,7 @@
 			);
 			mainGroup = 1E00643F27CEDF9B006FF6E9;
 			packageReferences = (
-				1E9441322F58DF8500374E2B /* XCRemoteSwiftPackageReference "zebra" */,
+				3426E3C43048A99F0061040A /* XCRemoteSwiftPackageReference "zebra" */,
 			);
 			productRefGroup = 1E00644927CEDF9B006FF6E9 /* Products */;
 			projectDirPath = "";
@@ -654,6 +654,14 @@
 			requirement = {
 				kind = exactVersion;
 				version = 1.0.0;
+			};
+		};
+		3426E3C43048A99F0061040A /* XCRemoteSwiftPackageReference "zebra" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/picovoice/zebra";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

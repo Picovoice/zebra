@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name = 'Zebra-iOS'
     s.module_name = 'Zebra'
-    s.version = '1.0.0'
+    s.version = '1.1.0'
     s.license = {:type => 'Apache 2.0'}
     s.summary = 'iOS binding for Picovoice\'s Zebra Translate.'
     s.description =

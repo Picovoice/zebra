@@ -16,21 +16,21 @@ class ZebraAppTestUITests: BaseTest {
         continueAfterFailure = true
     }
 
-    func runTestTranslate(zebra: Zebra, text: String, translation: String) throws {
+    func runTestTranslate(zebra: Zebra, text: String, translations: [String]) throws {
         let res = try zebra.translate(text: text)
         XCTAssertGreaterThan(res.count, 0)
-        XCTAssertEqual(res, translation)
+        XCTAssertTrue(translations.contains(res))
     }
 
     func testTranslate() throws {
         for testCase in self.testData!.tests.translation_tests {
-            for (target, translation) in testCase.translations {
+            for (target, translations) in testCase.translations {
                 let model = "zebra_params_\(testCase.source)_\(target).pv"
                 let zebra = try Zebra.init(
                         accessKey: self.accessKey,
                         modelPath: self.getModelPath(model: model),
                         device: device)
-                try runTestTranslate(zebra: zebra, text: testCase.text, translation: translation)
+                try runTestTranslate(zebra: zebra, text: testCase.text, translations: translations)
                 zebra.delete()
             }
         }
