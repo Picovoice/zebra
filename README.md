@@ -252,3 +252,7 @@ For more details, see the [Web SDK](./binding/web/).
 ### v1.0.0 - Mar 5, 2026
 
 - Initial release
+
+### v1.1.0 - Sep 2, 2026
+
+- Added support for en-ja and en-ko translations.
