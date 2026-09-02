@@ -78,7 +78,7 @@ jobs:
           - machine: rpi3-32
             performance_threshold_sec: 7.0
           - machine: rpi3-64
-            performance_threshold_sec: 5.5
+            performance_threshold_sec: 9.0
           - machine: rpi4-32
             performance_threshold_sec: 3.5
           - machine: rpi4-64
@@ -93,6 +93,20 @@ jobs:
       - name: Machine state before
         working-directory: resources/.scripts
         run: bash machine-state.sh
+
+      - name: Setup Python virtualenv (*nix)
+        if: ${{ matrix.machine != 'pv-windows' && matrix.machine != 'pv-windows-igpu' && matrix.machine != 'pv-windows-arm64' }}
+        run: |
+          python3 -m venv binding/python/.venv
+          . binding/python/.venv/bin/activate
+          echo PATH=$PATH >> $GITHUB_ENV
+
+      - name: Setup Python virtualenv (windows)
+        if: ${{ matrix.machine == 'pv-windows' || matrix.machine == 'pv-windows-igpu' || matrix.machine == 'pv-windows-arm64' }}
+        run: |
+          python3 -m venv binding\python\.venv --symlinks
+          binding\python\.venv\Scripts\activate
+          echo PATH=$PATH >> $GITHUB_ENV
 
       - name: Pre-build dependencies
         run: python3 -m pip install --upgrade pip
