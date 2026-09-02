@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -236,7 +236,7 @@
 			);
 			mainGroup = 1E00643F27CEDF9B006FF6E9;
 			packageReferences = (
-				346107273047698700D518DD /* XCLocalSwiftPackageReference "../../../../zebra" */,
+				3426E3C43048A99F0061040A /* XCRemoteSwiftPackageReference "zebra" */,
 			);
 			productRefGroup = 1E00644927CEDF9B006FF6E9 /* Products */;
 			projectDirPath = "";
@@ -647,13 +647,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		346107273047698700D518DD /* XCLocalSwiftPackageReference "../../../../zebra" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../../../zebra;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		1E9441322F58DF8500374E2B /* XCRemoteSwiftPackageReference "zebra" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -661,6 +654,14 @@
 			requirement = {
 				kind = exactVersion;
 				version = 1.0.0;
+			};
+		};
+		3426E3C43048A99F0061040A /* XCRemoteSwiftPackageReference "zebra" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/picovoice/zebra";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
