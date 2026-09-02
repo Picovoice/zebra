@@ -42,16 +42,6 @@ jobs:
       - name: Pre-build dependencies
         run: python -m pip install --upgrade pip
 
-# ************** REMOVE AFTER RELEASE ********************
-      - name: Build binding
-        run: |
-          pip install setuptools
-          pip install wheel
-          python setup.py sdist bdist_wheel
-          pip install dist/pvzebra-1.1.0-py3-none-any.whl
-        working-directory: binding/python
-# ********************************************************
-
       - name: Install dependencies
         run: pip install -r requirements.txt
 
@@ -96,16 +86,6 @@ jobs:
           python3 -m venv binding\python\.venv --symlinks
           binding\python\.venv\Scripts\activate
           echo PATH=$PATH >> $GITHUB_ENV
-
-# ************** REMOVE AFTER RELEASE ********************
-      - name: Build binding
-        run: |
-          pip3 install setuptools
-          pip3 install wheel
-          python3 setup.py sdist bdist_wheel
-          pip3 install dist/pvzebra-1.1.0-py3-none-any.whl
-        working-directory: binding/python
-# ********************************************************
 
       - name: Install dependencies
         run: pip3 install -r requirements.txt
